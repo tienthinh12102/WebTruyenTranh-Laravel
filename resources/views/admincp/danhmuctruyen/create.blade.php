@@ -35,8 +35,8 @@
                       <div class="form-group">
                         <label for="exampleInputEmail1">Kích hoạt danh mục</label>
                         <select name="kichhoat" class="custom-select">
-                          <option value="1">Kích hoạt</option>
-                          <option value="2">Không kích hoạt</option>
+                          <option value="0">Kích hoạt</option>
+                          <option value="1">Không kích hoạt</option>
                         </select>
                       </div>
                       <button type="submit" class="btn btn-primary">Thêm</button>
