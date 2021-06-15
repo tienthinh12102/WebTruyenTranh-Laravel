@@ -39,16 +39,19 @@ class DanhmucController extends Controller
         $data = $request->validate(
             [
                 'tendanhmuc' => 'required|unique:danhmuc|max:255',
+                'slug_danhmuc' => 'required|unique:danhmuc|max:255',
                 'mota' => 'required|max:255',
                 'kichhoat' => 'required',
             ],
             [
+                'tendanhmuc.unique' => 'Tên danh mục đã có vui lòng điền tên khác',
                 'tendanhmuc.required' => 'Tên danh mục trống',
                 'mota.required' => 'Mô tả danh mục trống',
             ]
         );
         $danhmuctruyen = new DanhmucTruyen();
         $danhmuctruyen->tendanhmuc = $data['tendanhmuc'];
+        $danhmuctruyen->slug_danhmuc = $data['slug_danhmuc'];
         $danhmuctruyen->mota = $data['mota'];
         $danhmuctruyen->kichhoat = $data['kichhoat'];
         $danhmuctruyen->save();
@@ -74,7 +77,8 @@ class DanhmucController extends Controller
      */
     public function edit($id)
     {
-        return view('admincp.danhmuctruyen.edit');
+        $danhmuc = DanhmucTruyen::find($id);
+        return view('admincp.danhmuctruyen.edit')->with(compact('danhmuc'));
     }
 
     /**
@@ -86,7 +90,28 @@ class DanhmucController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->validate(
+            [
+                'tendanhmuc' => 'required|max:255',
+                'slug_danhmuc' => 'required|max:255',
+                'mota' => 'required|max:255',
+                'kichhoat' => 'required',
+            ],
+            [
+                'tendanhmuc.required' => 'Tên danh mục trống',
+                'slug_danhmuc.required' => 'Slug danh mục trống',
+                'mota.required' => 'Mô tả danh mục trống',
+            ]
+        );
+        $danhmuctruyen = DanhmucTruyen::find($id);
+        
+        $danhmuctruyen->tendanhmuc = $data['tendanhmuc'];
+        $danhmuctruyen->slug_danhmuc = $data['slug_danhmuc'];
+        $danhmuctruyen->mota = $data['mota'];
+        $danhmuctruyen->kichhoat = $data['kichhoat'];
+        $danhmuctruyen->save();
+        
+        return redirect()->back()->with('status','Cập nhật danh mục thành công');
     }
 
     /**

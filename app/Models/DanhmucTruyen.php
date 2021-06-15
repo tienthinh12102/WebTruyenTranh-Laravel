@@ -11,7 +11,7 @@ class DanhmucTruyen extends Model
 
     public $timestamps = false;
     protected $fillable = [
-    	'tendanhmuc','mota','kichhoat'
+    	'tendanhmuc','mota','kichhoat','slug_danhmuc'
     ];
     protected $primaryKey = 'id';
     protected $table = 'danhmuc';

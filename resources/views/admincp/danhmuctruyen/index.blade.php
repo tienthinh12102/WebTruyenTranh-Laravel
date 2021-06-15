@@ -19,6 +19,7 @@
                         <tr>
                           <th scope="col">#</th>
                           <th scope="col">Tên danh mục</th>
+                          <th scope="col">Slug danh mục</th>
                           <th scope="col">Mô tả</th>
                           <th scope="col">Kích hoạt</th>
                           <th scope="col">Quản lý</th>
@@ -29,6 +30,7 @@
                         <tr>
                           <th scope="row">{{$key}}</th>
                           <td>{{$danhmuc->tendanhmuc}}</td>
+                          <td>{{$danhmuc->slug_danhmuc}}</td>
                           <td>{{$danhmuc->mota}}</td>
                           <td>
                               @if($danhmuc->kichhoat==0)
@@ -38,7 +40,8 @@
                               @endif
                           </td>
                           <td>
-                              <form action="{{ route('danhmuc.destroy',['danhmuc' => $danhmuc->id])}}" method="POST">
+                            <a href="{{route('danhmuc.edit',[$danhmuc->id])}}" class="btn btn-success">Edit</a>
+                              <form action="{{ route('danhmuc.destroy',[$danhmuc->id])}}" method="POST">
                                   @method('DELETE')
                                   @csrf
                                   <button onclick="return confirm('Bạn có muốn xóa danh mục này không ?')" class="btn btn-danger">Delete</button>
