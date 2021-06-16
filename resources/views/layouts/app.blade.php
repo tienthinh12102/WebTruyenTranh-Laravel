@@ -8,6 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>Truyện Tranh 247</title>
+    <link rel="shortcut icon" type="image/png" href="public/uploads/truyen/favicon.png"/>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
