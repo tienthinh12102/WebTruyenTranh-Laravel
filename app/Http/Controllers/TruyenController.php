@@ -15,7 +15,8 @@ class TruyenController extends Controller
      */
     public function index()
     {
-         return view('admincp.truyen.index');
+        $list_truyen = Truyen::with('danhmuctruyen')->orderBy('id','DESC')->get();
+        return view('admincp.truyen.index')->with(compact('list_truyen'));
     }
 
     /**
@@ -95,7 +96,9 @@ class TruyenController extends Controller
      */
     public function edit($id)
     {
-        return view('admincp.truyen.edit');
+        $truyen = Truyen::find($id);
+        $danhmuc = DanhmucTruyen::orderBy('id','DESC')->get();
+        return view('admincp.truyen.edit')->with(compact('truyen','danhmuc'));
     }
 
     /**
@@ -107,7 +110,44 @@ class TruyenController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->validate(
+            [
+                'tentruyen' => 'required|max:255',
+                'slug_truyen' => 'required|max:255',
+                'tomtat' => 'required',
+                'kichhoat' => 'required',
+                'danhmuc' => 'required',
+            ],
+            [
+                
+                'slug_truyen.required' => 'Slug truyện trống',
+                'tentruyen.required' => 'Tên truyện trống',
+                'tomtat.required' => 'Tóm tắt danh mục trống',
+                
+            ]
+        );
+        $truyen = Truyen::find($id);
+        $truyen->tentruyen = $data['tentruyen'];
+        $truyen->slug_truyen = $data['slug_truyen'];
+        $truyen->tomtat = $data['tomtat'];
+        $truyen->kichhoat = $data['kichhoat'];
+        $truyen->danhmuc_id = $data['danhmuc'];
+        //them anh vao folder
+        $get_image = $request->hinhanh;
+        if($get_image){
+            $path = 'public/uploads/truyen/'.$truyen->hinhanh;
+            if(file_exists($path)){
+                unlink($path);
+            }
+            $path = 'public/uploads/truyen/';
+            $get_name_image = $get_image->getClientOriginalName();
+            $name_image = current(explode('.', $get_name_image));
+            $new_image = $name_image.rand(0,99).'.'.$get_image->getClientOriginalExtension();
+            $get_image->move($path,$new_image);
+            $truyen->hinhanh = $new_image;
+        }
+        $truyen->save();
+        return redirect()->back()->with('status','Cập nhật truyện thành công');
     }
 
     /**
@@ -118,6 +158,12 @@ class TruyenController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $truyen = Truyen::find($id);
+        $path = 'public/uploads/truyen/'.$truyen->hinhanh;
+        if(file_exists($path)){
+            unlink($path);
+        }
+        Truyen::find($id)->delete();
+        return redirect()->back()->with('status','Xóa truyện thành công');
     }
 }
