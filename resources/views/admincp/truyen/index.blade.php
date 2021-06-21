@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Liệt kê truyện2</div>
+                <div class="card-header">Liệt kê truyện</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -32,7 +32,7 @@
                         <tr>
                           <th scope="row">{{$key}}</th>
                           <td>{{$truyen->tentruyen}}</td>
-                          <td><img src="{{asset('public/uploads/truyen/'.$truyen->hinhanh)}}" height="70" width="90"></td>
+                          <td><img src="{{asset('public/uploads/truyen/'.$truyen->hinhanh)}}" height="100" width="80"></td>
                           <td>{{$truyen->slug_truyen}}</td>
                           <td>{{$truyen->tomtat}}</td>
                           <td>{{$truyen->danhmuctruyen->tendanhmuc}}</td>

@@ -34,7 +34,8 @@
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail1">Mô tả danh mục</label>
-                        <input type="text" name="mota" value="{{old('mota')}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Mô tả danh mục ... ">
+                        
+                        <textarea name="mota" class="form-control"  rows="5" style="resize: none">{{old('mota')}}</textarea>
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail1">Kích hoạt danh mục</label>

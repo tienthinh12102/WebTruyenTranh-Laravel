@@ -10002,3 +10002,7 @@ h3 {
     border-color: #dee2e6;
   }
 }
+a.btn.btn-success {
+    width: 68px;
+    margin-bottom: 5px;
+}
