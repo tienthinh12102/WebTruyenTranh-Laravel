@@ -25,6 +25,15 @@
                               <a class="dropdown-item" href="{{route('truyen.index')}}">Liệt kê truyện tranh</a>
                             </div>
                           </li>
+                          <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Chapter
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                              <a class="dropdown-item" href="{{route('chapter.create')}}">Thêm chapter</a>
+                              <a class="dropdown-item" href="{{route('chapter.index')}}">Liệt kê chapter</a>
+                            </div>
+                          </li>
 
                         </ul>
                         <form class="form-inline my-2 my-lg-0">
