@@ -16,7 +16,8 @@ class ChapterController extends Controller
      */
     public function index()
     {
-        //
+        $list_chapter = Chapter::with('truyen')->orderBy('id','DESC')->get();
+        return view('admincp.chapter.index')->with(compact('list_chapter'));
     }
 
     /**
@@ -89,7 +90,9 @@ class ChapterController extends Controller
      */
     public function edit($id)
     {
-        //
+        $chapter = Chapter::find($id);
+        $truyen = Truyen::orderBy('id','DESC')->get();
+        return view('admincp.chapter.edit')->with(compact('truyen','chapter'));
     }
 
     /**
@@ -101,7 +104,35 @@ class ChapterController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+         $data = $request->validate(
+            [
+                'tieude' => 'required|max:255',
+                'slug_chapter' => 'required|max:255',
+
+                'noidung' => 'required',
+                'tomtat' => 'required',
+                'kichhoat' => 'required',
+                'truyen_id' => 'required',
+            ],
+            [
+                
+                'slug_chapter.required' => 'Slug chapter trống',
+                'tieude.required' => 'Tên slug_chapter trống',
+                'tomtat.required' => 'Tóm tắt chapter trống',
+                'noidung.required' => 'Nội dung trống',
+                'truyen_id.required' => 'Truyện id trống',
+            ]
+        );
+        $chapter = Chapter::find($id);
+        $chapter->tieude = $data['tieude'];
+        $chapter->slug_chapter = $data['slug_chapter'];
+        $chapter->noidung = $data['noidung'];
+        $chapter->tomtat = $data['tomtat'];
+        $chapter->kichhoat = $data['kichhoat'];
+        $chapter->truyen_id = $data['truyen_id'];
+
+        $chapter->save();
+        return redirect()->back()->with('status','Cập nhật chapter thành công');
     }
 
     /**
@@ -112,6 +143,8 @@ class ChapterController extends Controller
      */
     public function destroy($id)
     {
-        //
+      
+        Chapter::find($id)->delete();
+        return redirect()->back()->with('status','Xóa chapter thành công');
     }
 }
