@@ -7,6 +7,7 @@
         <title>Truyện Tranh 247</title>
 
         <!-- Fonts -->
+        <link rel="shortcut icon" type="image/png" href="public/uploads/truyen/favicon.png"/>
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
         <!-- Styles -->
@@ -106,7 +107,7 @@
                           <div class="card mb-3 box-shadow">
                             <img class="card-img-top" src="{{asset('public/uploads/truyen/nhat-quy-nhi-ma-thu-ba-takagi81.jpg')}}">
                             <div class="card-body">
-                                <h3>Tiêu đề</h3>
+                                <h3>Nhất quỷ nhì mà</h3>
                               <p class="card-text">Tóm tắt</p>
                               <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
