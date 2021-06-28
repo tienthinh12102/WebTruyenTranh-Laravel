@@ -9,91 +9,25 @@
   <div class="container">
 
     <div class="row">
+      @foreach($truyen as $key => $value)
       <div class="col-md-3">
         <div class="card mb-3 box-shadow">
-          <a href="">
-            <img class="card-img-top" src="{{asset('public/uploads/truyen/nhat-quy-nhi-ma-thu-ba-takagi81.jpg')}}">
-            <div class="card-body">
-              <h3>Nhất quỷ nhì mà</h3>
-              <p class="card-text">Tóm tắt</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <a href="" class="btn btn-sm btn-outline-secondary">Đọc ngay</a>
-                  <a class="btn btn-sm btn-outline-secondary"><i class="fas fa-eye"></i>6000</a>
-                </div>
-                <small class="text-muted">9 phút trước</small>
-              </div>
-            </a>
-            
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="card mb-3 box-shadow">
-          <img class="card-img-top" src="{{asset('public/uploads/truyen/tham-tu-conan44.jpg')}}">
-          <div class="card-body">
-            <h3>Tiêu đề</h3>
-            <p class="card-text">Tóm tắt</p>
-            <div class="d-flex justify-content-between align-items-center">
-              <div class="btn-group">
-                <a href="" class="btn btn-sm btn-outline-secondary">Đọc ngay</a>
-                <a class="btn btn-sm btn-outline-secondary"><i class="fas fa-eye"></i>6000</a>
-              </div>
-              <small class="text-muted">9 phút trước</small>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="card mb-3 box-shadow">
-          <img class="card-img-top" src="{{asset('public/uploads/truyen/tien-vo-de-ton9.jpg')}}">
-          <div class="card-body">
-            <h3>Tiêu đề</h3>
-            <p class="card-text">Tóm tắt</p>
-            <div class="d-flex justify-content-between align-items-center">
-              <div class="btn-group">
-                <a href="" class="btn btn-sm btn-outline-secondary">Đọc ngay</a>
-                <a class="btn btn-sm btn-outline-secondary"><i class="fas fa-eye"></i>6000</a>
-              </div>
-              <small class="text-muted">9 phút trước</small>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="card mb-3 box-shadow">
-          <img class="card-img-top" src="{{asset('public/uploads/truyen/pham-nhan-tu-tien-chi-tien-gioi-thien99.jpg')}}">
-          <div class="card-body">
-            <h3>Tiêu đề</h3>
-            <p class="card-text">Tóm tắt</p>
-            <div class="d-flex justify-content-between align-items-center">
-              <div class="btn-group">
-                <a href="" class="btn btn-sm btn-outline-secondary">Đọc ngay</a>
-                <a class="btn btn-sm btn-outline-secondary"><i class="fas fa-eye"></i>6000</a>
-              </div>
-              <small class="text-muted">9 phút trước</small>
-            </div>
-          </div>
-        </div>
 
-      </div>
-
-      <div class="col-md-3">
-        <div class="card mb-3 box-shadow">
-          <img class="card-img-top" src="{{asset('public/uploads/truyen/tien-vo-de-ton9.jpg')}}">
+          <img class="card-img-top" src="{{asset('public/uploads/truyen/'.$value->hinhanh)}}">
           <div class="card-body">
-            <h3>Tiêu đề</h3>
-            <p class="card-text">Tóm tắt</p>
+            <h5>{{$value->tentruyen}}</h5>
+            <p class="card-text">{{$value->tomtat}}</p>
             <div class="d-flex justify-content-between align-items-center">
               <div class="btn-group">
-                <a href="" class="btn btn-sm btn-outline-secondary">Đọc ngay</a>
+                <a href="{{url('xem-truyen/ '.$value->slug_truyen)}}" class="btn btn-sm btn-outline-secondary">Đọc ngay</a>
                 <a class="btn btn-sm btn-outline-secondary"><i class="fas fa-eye"></i>6000</a>
               </div>
               <small class="text-muted">9 phút trước</small>
-            </div>
+            </div>           
           </div>
         </div>
       </div>
+      @endforeach  
     </div>
     <a class="btn btn-success" href="">Xem tất cả</a>
   </div>
