@@ -31,7 +31,13 @@
             <li>Số chapter : 12</li>
             <li>Số lượt xem : 16248</li>
             <li><a href="#">Xem mục lục</a></li>
-            <li><a class="btn btn-primary" href="#">Đọc ngay</a></li>
+            
+            @if($chapter_dau)
+              <li><a href="{{url('xem-chapter/'.$chapter_dau->slug_chapter)}}" class="btn btn-primary" >Đọc ngay</a></li>
+            @else
+              <li>Đang cập nhật ...</li>
+            @endif
+            
           </ul>
         </div>
 
