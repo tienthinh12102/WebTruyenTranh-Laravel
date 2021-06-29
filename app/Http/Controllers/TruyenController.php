@@ -46,6 +46,7 @@ class TruyenController extends Controller
                 'hinhanh' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048|dimensions:min_width=100,min_height=100,max_width=1000,max_height=1000,',
                 'tomtat' => 'required',
                 'kichhoat' => 'required',
+                'tacgia' => 'required',
                 'danhmuc' => 'required',
             ],
             [
@@ -54,6 +55,7 @@ class TruyenController extends Controller
                 'slug_truyen.required' => 'Slug truyện trống',
                 'tentruyen.required' => 'Tên truyện trống',
                 'tomtat.required' => 'Tóm tắt danh mục trống',
+                'tacgia.required' => 'Tác giả truyện trống',
                 'hinhanh.required' => 'Hình ảnh truyện trống',
             ]
         );
@@ -61,6 +63,7 @@ class TruyenController extends Controller
         $truyen->tentruyen = $data['tentruyen'];
         $truyen->slug_truyen = $data['slug_truyen'];
         $truyen->tomtat = $data['tomtat'];
+        $truyen->tacgia = $data['tacgia'];
         $truyen->kichhoat = $data['kichhoat'];
         $truyen->danhmuc_id = $data['danhmuc'];
 
@@ -116,10 +119,11 @@ class TruyenController extends Controller
                 'slug_truyen' => 'required|max:255',
                 'tomtat' => 'required',
                 'kichhoat' => 'required',
+                'tacgia' => 'required',
                 'danhmuc' => 'required',
             ],
             [
-                
+                'tacgia.required' => 'Tác giả truyện trống',
                 'slug_truyen.required' => 'Slug truyện trống',
                 'tentruyen.required' => 'Tên truyện trống',
                 'tomtat.required' => 'Tóm tắt danh mục trống',
@@ -130,6 +134,7 @@ class TruyenController extends Controller
         $truyen->tentruyen = $data['tentruyen'];
         $truyen->slug_truyen = $data['slug_truyen'];
         $truyen->tomtat = $data['tomtat'];
+        $truyen->tacgia = $data['tacgia'];
         $truyen->kichhoat = $data['kichhoat'];
         $truyen->danhmuc_id = $data['danhmuc'];
         //them anh vao folder

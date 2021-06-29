@@ -35,7 +35,7 @@
             <a href="">
               <img class="card-img-top" src="{{asset('public/uploads/truyen/nhat-quy-nhi-ma-thu-ba-takagi81.jpg')}}">
               <div class="card-body">
-                <h5>Nhất quỷ nhì mà</h5>
+                <h6>Nhất quỷ nhì mà</h6>
                 <p class="card-text">Tóm tắt</p>
               </div>
             </a>       
@@ -46,7 +46,7 @@
             <a href="">
               <img class="card-img-top" src="{{asset('public/uploads/truyen/nhat-quy-nhi-ma-thu-ba-takagi81.jpg')}}">
               <div class="card-body">
-                <h5>Nhất quỷ nhì mà</h5>
+                <h6>Nhất quỷ nhì mà</h6>
                 <p class="card-text">Tóm tắt</p>
               </div>
             </a>       
@@ -57,7 +57,7 @@
             <a href="">
               <img class="card-img-top" src="{{asset('public/uploads/truyen/nhat-quy-nhi-ma-thu-ba-takagi81.jpg')}}">
               <div class="card-body">
-                <h5>Nhất quỷ nhì mà</h5>
+                <h6>Nhất quỷ nhì mà</h6>
                 <p class="card-text">Tóm tắt</p>
               </div>
             </a>       
@@ -68,7 +68,7 @@
             <a href="">
               <img class="card-img-top" src="{{asset('public/uploads/truyen/nhat-quy-nhi-ma-thu-ba-takagi81.jpg')}}">
               <div class="card-body">
-                <h5>Nhất quỷ nhì mà</h5>
+                <h6>Nhất quỷ nhì mà</h6>
                 <p class="card-text">Tóm tắt</p>
               </div>
             </a>       
