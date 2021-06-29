@@ -21,7 +21,7 @@
             <!----------------Menu--------------------->
             <div>
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                  <a class="navbar-brand" href="#">Truyen 247</a>
+                  <a class="navbar-brand" href="{{url('/home')}}">Truyen 247</a>
                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                   </button>
@@ -96,6 +96,20 @@
                     }
                 }
             })
+        </script>
+        <script type="text/javascript">
+          $('.select-chapter').on('change',function(){
+            var url = $(this).val();
+            if(url){
+              window.location = url;
+            }
+            return false;
+          });
+          current_chapter();
+          function current_chapter(){
+            var url = window.location.href;
+            $('.select-chapter').find('option[value="'+url+'"]').attr("selected",true);
+          }
         </script>
     </body>
 </html>

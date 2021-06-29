@@ -17,9 +17,9 @@
       <div class="col-md-5">
         <div class="form-group">
           <label for="exampleInputEmail1">Chọn chương</label>
-          <select name="kichhoat" class="custom-select">
+          <select name="kichhoat" class="custom-select select-chapter">
             @foreach($allchapter as $key =>$chap)
-            <option value="0">{{$chap->tieude}}</option>
+            <option value="{{url('xem-chapter/'.$chap->slug_chapter)}}">{{$chap->tieude}}</option>
             @endforeach
           </select>
         </div>
@@ -27,6 +27,17 @@
       <div class="noidungchuong">
         <p>{!! $chapter->noidung !!}</p>
       </div>
+      <div class="col-md-5">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Chọn chương</label>
+          <select name="kichhoat" class="custom-select select-chapter">
+            @foreach($allchapter as $key =>$chap)
+            <option value="{{url('xem-chapter/'.$chap->slug_chapter)}}">{{$chap->tieude}}</option>
+            @endforeach
+          </select>
+        </div>
+      </div>
+
       <h4>Truyện cùng thể loại</h4>
       <div class="row">
         <div class="col-md-2">
@@ -78,7 +89,7 @@
 
 
     </div>
- 
+    
   </div>
 
   @endsection
