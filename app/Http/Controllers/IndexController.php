@@ -36,7 +36,13 @@ class IndexController extends Controller
     	$truyen = Chapter::where('slug_chapter',$slug)->first();
      	$chapter = Chapter::with('truyen')->where('slug_chapter',$slug)->where('truyen_id',$truyen->truyen_id)->first();
      	$allchapter = Chapter::with('truyen')->orderBy('id','ASC')->where('truyen_id',$truyen->truyen_id)->get();
+     	$next_chapter = Chapter::where('truyen_id',$truyen->truyen_id)->where('id','>',$chapter->id)->min('slug_chapter');
 
-    	return view('pages.chapter')->with(compact('danhmuc','chapter','allchapter'));
+     	$max_id = Chapter::where('truyen_id',$truyen->truyen_id)->orderBy('id','DESC')->first();
+     	$min_id = Chapter::where('truyen_id',$truyen->truyen_id)->orderBy('id','ASC')->first();
+
+     	$previous_chapter = Chapter::where('truyen_id',$truyen->truyen_id)->where('id','<',$chapter->id)->max('slug_chapter');	
+
+    	return view('pages.chapter')->with(compact('danhmuc','chapter','allchapter','next_chapter','previous_chapter','max_id','min_id'));
     }
 }

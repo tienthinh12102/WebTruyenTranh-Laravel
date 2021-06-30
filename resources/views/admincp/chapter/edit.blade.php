@@ -39,7 +39,7 @@
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail1">Nội dung</label>
-                        <textarea name="noidung" class="form-control" rows="5" style="resize: none">{{$chapter->noidung}}</textarea>
+                        <textarea name="noidung" id="noidung_chapter" class="form-control" rows="5" style="resize: none">{{$chapter->noidung}}</textarea>
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail1">Thuộc truyện </label>

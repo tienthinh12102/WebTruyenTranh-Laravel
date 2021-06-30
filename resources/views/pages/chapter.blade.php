@@ -15,13 +15,24 @@
       <h4>{{$chapter->truyen->tentruyen}}</h4>
       <p>Chương hiện tại : {{$chapter->tieude}}</p>
       <div class="col-md-5">
+        <style type="text/css">
+          .isDisable{
+            color: currentColor;
+            pointer-events: none;
+            opacity: 0.5;
+            text-decoration: none;
+          }
+        </style>
         <div class="form-group">
+          
           <label for="exampleInputEmail1">Chọn chương</label>
+          <p><a href="{{url('xem-chapter/'. $previous_chapter)}}" class="btn btn-primary {{$chapter->id==$min_id->id ? 'isDisable' : ''}}">Tập Trước</a></p>
           <select name="kichhoat" class="custom-select select-chapter">
             @foreach($allchapter as $key =>$chap)
             <option value="{{url('xem-chapter/'.$chap->slug_chapter)}}">{{$chap->tieude}}</option>
             @endforeach
           </select>
+          <p class="mt-3"><a href="{{url('xem-chapter/'. $next_chapter)}}" class="btn btn-primary {{$chapter->id==$max_id->id ? 'isDisable' : ''}}">Tập Sau</a></p>
         </div>
       </div>
       <div class="noidungchuong">
@@ -29,12 +40,14 @@
       </div>
       <div class="col-md-5">
         <div class="form-group">
+          
           <label for="exampleInputEmail1">Chọn chương</label>
           <select name="kichhoat" class="custom-select select-chapter">
             @foreach($allchapter as $key =>$chap)
             <option value="{{url('xem-chapter/'.$chap->slug_chapter)}}">{{$chap->tieude}}</option>
             @endforeach
           </select>
+
         </div>
       </div>
 
