@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\DanhmucTruyen;
 use App\Models\Truyen;
+use App\Models\Theloai;
 
 class TruyenController extends Controller
 {
@@ -15,7 +16,7 @@ class TruyenController extends Controller
      */
     public function index()
     {
-        $list_truyen = Truyen::with('danhmuctruyen')->orderBy('id','DESC')->get();
+        $list_truyen = Truyen::with('danhmuctruyen','theloai')->orderBy('id','DESC')->get();
         return view('admincp.truyen.index')->with(compact('list_truyen'));
     }
 
@@ -26,8 +27,9 @@ class TruyenController extends Controller
      */
     public function create()
     {
+        $theloai = Theloai::orderBy('id','DESC')->get();
         $danhmuc = DanhmucTruyen::orderBy('id','DESC')->get();
-        return view('admincp.truyen.create')->with(compact('danhmuc'));
+        return view('admincp.truyen.create')->with(compact('danhmuc','theloai'));
     }
 
     /**
@@ -48,6 +50,7 @@ class TruyenController extends Controller
                 'kichhoat' => 'required',
                 'tacgia' => 'required',
                 'danhmuc' => 'required',
+                'theloai' => 'required',
             ],
             [
                 'tentruyen.unique' => 'Slug truyện đã có vui lòng điền tên khác',
@@ -57,6 +60,7 @@ class TruyenController extends Controller
                 'tomtat.required' => 'Tóm tắt danh mục trống',
                 'tacgia.required' => 'Tác giả truyện trống',
                 'hinhanh.required' => 'Hình ảnh truyện trống',
+                'theloai.required' => 'Thể loại truyện trống',
             ]
         );
         $truyen = new Truyen();
@@ -66,6 +70,7 @@ class TruyenController extends Controller
         $truyen->tacgia = $data['tacgia'];
         $truyen->kichhoat = $data['kichhoat'];
         $truyen->danhmuc_id = $data['danhmuc'];
+        $truyen->theloai_id = $data['theloai'];
 
         $get_image = $request->hinhanh;
         $path = 'public/uploads/truyen/';
@@ -100,8 +105,9 @@ class TruyenController extends Controller
     public function edit($id)
     {
         $truyen = Truyen::find($id);
+        $theloai = Theloai::orderBy('id','DESC')->get();
         $danhmuc = DanhmucTruyen::orderBy('id','DESC')->get();
-        return view('admincp.truyen.edit')->with(compact('truyen','danhmuc'));
+        return view('admincp.truyen.edit')->with(compact('truyen','danhmuc','theloai'));
     }
 
     /**
@@ -121,12 +127,14 @@ class TruyenController extends Controller
                 'kichhoat' => 'required',
                 'tacgia' => 'required',
                 'danhmuc' => 'required',
+                'theloai' => 'required',
             ],
             [
                 'tacgia.required' => 'Tác giả truyện trống',
                 'slug_truyen.required' => 'Slug truyện trống',
                 'tentruyen.required' => 'Tên truyện trống',
                 'tomtat.required' => 'Tóm tắt danh mục trống',
+                'theloai.required' => 'Thể loại truyện trống',
                 
             ]
         );
@@ -137,6 +145,7 @@ class TruyenController extends Controller
         $truyen->tacgia = $data['tacgia'];
         $truyen->kichhoat = $data['kichhoat'];
         $truyen->danhmuc_id = $data['danhmuc'];
+        $truyen->theloai_id = $data['theloai'];
         //them anh vao folder
         $get_image = $request->hinhanh;
         if($get_image){

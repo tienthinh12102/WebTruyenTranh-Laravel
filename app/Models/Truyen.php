@@ -11,7 +11,7 @@ class Truyen extends Model
 
     public $timestamps = false;
     protected $fillable = [
-    	'tentruyen','tomtat','kichhoat','slug_truyen','hinhanh','danhmuc_id','tacgia'
+    	'tentruyen','tomtat','kichhoat','slug_truyen','hinhanh','danhmuc_id','tacgia','theloai_id'
     ];
     protected $primaryKey = 'id';
     protected $table = 'truyen';
@@ -21,5 +21,8 @@ class Truyen extends Model
     }
     public function chapter(){
         return $this->hasMany('App\Models\Chapter');
+    }
+    public function theloai(){
+        return $this->belongsTo('App\Models\Theloai','theloai_id','id');
     }
 }

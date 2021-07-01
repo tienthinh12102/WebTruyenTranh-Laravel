@@ -15,4 +15,8 @@ class Theloai extends Model
     ];
     protected $primaryKey = 'id';
     protected $table = 'theloai';
+
+    public function truyen(){
+        return $this->hasMany('App\Models\Truyen');
+    }
 }
