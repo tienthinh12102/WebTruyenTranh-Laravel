@@ -6,6 +6,7 @@ use App\Http\Controllers\DanhmucController;
 use App\Http\Controllers\TruyenController;
 use App\Http\Controllers\ChapterController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\TheloaiController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,3 +31,4 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::resource('/danhmuc', DanhmucController::class);
 Route::resource('/truyen', TruyenController::class);
 Route::resource('/chapter', ChapterController::class);
+Route::resource('/theloai', TheloaiController::class);
