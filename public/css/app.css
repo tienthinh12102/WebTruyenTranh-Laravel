@@ -10006,3 +10006,11 @@ a.btn.btn-success {
     width: 68px;
     margin-bottom: 5px;
 }
+img.img.img-responsive {
+    margin-bottom: 8px;
+}
+ul.dropdown-menu {
+    margin-left: 830px;
+    padding-left: 10px;
+    padding-right: 20px;
+}

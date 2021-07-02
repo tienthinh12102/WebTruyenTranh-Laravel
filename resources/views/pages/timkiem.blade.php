@@ -6,13 +6,13 @@
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="{{url('/')}}">Trang chủ</a></li>    
-      <li class="breadcrumb-item active" aria-current="page">{{$tendanhmuc}}</li>
+      <li class="breadcrumb-item active" aria-current="page">Tìm kiếm</li>
     </ol>
 </nav>       
 <!----------------Sách mới--------------------->
 <div class="album py-5 bg-light">
   <div class="container">
-    <h3>Danh mục : {{$tendanhmuc}}</h3>
+    <h3>Tìm kiếm : {{$tukhoa}}</h3>
     <div class="row">
       @php
         $count = count($truyen);
@@ -25,7 +25,7 @@
           
           <div class="card-body">
             
-            <p>Truyện đang cập nhật</p>
+            <p>Không tìm thấy truyện ...</p>
             <div class="d-flex justify-content-between align-items-center">
                         
           </div>

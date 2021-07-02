@@ -5,9 +5,11 @@
   @section('content')            
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="#">Home</a></li>
-      <li class="breadcrumb-item"><a href="#">Library</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Data</li>
+      <li class="breadcrumb-item"><a href="{{url('/')}}">Trang chủ</a></li>
+      <li class="breadcrumb-item"><a href="{{url('danh-muc/'.$truyen_breadcrumb->danhmuctruyen->slug_danhmuc)}}">{{$truyen_breadcrumb->danhmuctruyen->tendanhmuc}}</a></li>
+      <li class="breadcrumb-item"><a href="{{url('the-loai/'.$truyen_breadcrumb->theloai->slug_theloai)}}">{{$truyen_breadcrumb->theloai->tentheloai}}</a></li>
+      <li class="breadcrumb-item"><a href="{{url('xem-truyen/'.$truyen_breadcrumb->slug_truyen)}}">{{$truyen_breadcrumb->tentruyen}}</a></li>
+      <li class="breadcrumb-item active" aria-current="page">{{$chapter->tieude}}</li>
     </ol>
   </nav>
   <div class="row">
@@ -51,54 +53,21 @@
         </div>
       </div>
 
-      <h4>Truyện cùng thể loại</h4>
+      {{-- <h4>Truyện cùng danh mục</h4>
       <div class="row">
-        <div class="col-md-2">
-          <div class="card mb-2 box-shadow">
-            <a href="">
-              <img class="card-img-top" src="{{asset('public/uploads/truyen/nhat-quy-nhi-ma-thu-ba-takagi81.jpg')}}">
+        @foreach($cungdanhmuc as $key => $cung)
+        <div class="col-md-3">
+          <div class="card mb-3 box-shadow">
+            <a href="{{url('xem-chapter/'.$cung->slug_truyen)}}">
+              <img class="card-img-top" src="{{asset('public/uploads/truyen/'.$cung->hinhanh)}}">
               <div class="card-body">
-                <h6>Nhất quỷ nhì mà</h6>
-                <p class="card-text">Tóm tắt</p>
+                <h7>{{$cung->tentruyen}}</h7>
               </div>
             </a>       
           </div>        
         </div>
-        <div class="col-md-2">
-          <div class="card mb-2 box-shadow">
-            <a href="">
-              <img class="card-img-top" src="{{asset('public/uploads/truyen/nhat-quy-nhi-ma-thu-ba-takagi81.jpg')}}">
-              <div class="card-body">
-                <h6>Nhất quỷ nhì mà</h6>
-                <p class="card-text">Tóm tắt</p>
-              </div>
-            </a>       
-          </div>        
-        </div>
-        <div class="col-md-2">
-          <div class="card mb-2 box-shadow">
-            <a href="">
-              <img class="card-img-top" src="{{asset('public/uploads/truyen/nhat-quy-nhi-ma-thu-ba-takagi81.jpg')}}">
-              <div class="card-body">
-                <h6>Nhất quỷ nhì mà</h6>
-                <p class="card-text">Tóm tắt</p>
-              </div>
-            </a>       
-          </div>        
-        </div>
-        <div class="col-md-2">
-          <div class="card mb-2 box-shadow">
-            <a href="">
-              <img class="card-img-top" src="{{asset('public/uploads/truyen/nhat-quy-nhi-ma-thu-ba-takagi81.jpg')}}">
-              <div class="card-body">
-                <h6>Nhất quỷ nhì mà</h6>
-                <p class="card-text">Tóm tắt</p>
-              </div>
-            </a>       
-          </div>        
-        </div>
-
-      </div>
+        @endforeach
+      </div> --}}
 
 
     </div>

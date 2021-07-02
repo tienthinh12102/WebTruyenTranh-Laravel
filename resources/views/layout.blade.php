@@ -34,30 +34,39 @@
                       
                       <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Danh mục truyện
+                          <i class="fa fa-tags" aria-hidden="true"> Danh mục truyện</i>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                           @foreach($danhmuc as $key => $danh)
-                          <a class="dropdown-item" href="{{url('danh-muc/'.$danh->slug_danhmuc)}}">{{$danh->tendanhmuc}}</a>
+                          <a class="dropdown-item" href="{{url('danh-muc/'.$danh->slug_danhmuc)}}"><i class="fa fa-tags" aria-hidden="true"> {{$danh->tendanhmuc}}</i></a>
                           @endforeach
                         </div>
                       </li>
                       <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Thể loại 
+                          <i class="fa fa-list-ul"> Thể loại</i>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                           @foreach($theloai as $key => $the)
-                          <a class="dropdown-item" href="{{url('the-loai/'.$the->slug_theloai)}}">{{$the->tentheloai}}</a>
+                          
+                            <a class="dropdown-item" href="{{url('the-loai/'.$the->slug_theloai)}}"><i class="fa fa-list-ul"> {{$the->tentheloai}}</i></a>
+                          
+                          
                           @endforeach
                         </div>
                       </li>
                       
                     </ul>
-                    <form class="form-inline my-2 my-lg-0">
-                      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                    </form>
+                    <div class="row">
+                      <div class="col-mt-12">
+                        <form autocomplete="off" class="form-inline my-2 my-lg-0" action="{{url('tim-kiem')}}">
+                          @csrf
+                          <input class="form-control mr-sm-2" id="keywords" type="search" name="tukhoa" placeholder="Tìm kiếm truyện, tác giả ..." aria-label="Search">
+                          <div id="search_ajax"></div>
+                          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm kiếm</button>
+                        </form>
+                      </div>                 
+                    </div>                
                   </div>
                 </nav>
             </div>
@@ -79,6 +88,31 @@
         <script src="{{ asset('js/app.js') }}" defer></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+        <script type="text/javascript">
+          $('#keywords').keyup(function(){
+              var query = $(this).val();
+                if(query != ''){
+                  var _token = $('input[name="_token"]').val();
+
+                  $.ajax({
+                    url:"{{url('/autocomplete-ajax')}}",
+                    method:"POST",
+                    data:{query:query, _token:_token},
+                    success:function(data){
+                      $('#search_ajax').fadeIn();
+                      $('#search_ajax').html(data);
+                    }
+                  })
+                }else{
+                  $('#search_ajax').fadeOut();
+                }
+          });
+          $(document).on('click','.li_search_ajax',function(){
+            $('#keywords').val($(this).text());
+            $('#search_ajax').fadeOut();
+          });
+        </script>
+        $()
         
 
         <script type="text/javascript">

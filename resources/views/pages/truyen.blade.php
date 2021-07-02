@@ -5,9 +5,9 @@
   @section('content')            
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="#">Home</a></li>
-      <li class="breadcrumb-item"><a href="#">Library</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Data</li>
+      <li class="breadcrumb-item"><a href="{{url('/')}}">Trang chủ</a></li>
+      <li class="breadcrumb-item"><a href="{{url('danh-muc/'.$truyen->danhmuctruyen->slug_danhmuc)}}">{{$truyen->danhmuctruyen->tendanhmuc}}</a></li>
+      <li class="breadcrumb-item active" aria-current="page">{{$truyen->tentruyen}}</li>
     </ol>
   </nav>
   <div class="row">
@@ -24,10 +24,12 @@
               list-style: none;
             }
           </style>
+          
           <ul class="infotruyen">
             <li><b>{{$truyen->tentruyen}}</b></li>
             <li>Tác giả : {{$truyen->tacgia}}</li>
             <li>Danh mục truyện : <a href="{{url('danh-muc/'.$truyen->danhmuctruyen->slug_danhmuc)}}">{{$truyen->danhmuctruyen->tendanhmuc}}</a></li>
+            <li>Thể loại truyện : <a href="{{url('the-loai/'.$truyen->theloai->slug_theloai)}}">{{$truyen->theloai->tentheloai}}</a></li>
             <li>Số chapter : 12</li>
             <li>Số lượt xem : 16248</li>
             <li><a href="#">Xem mục lục</a></li>
@@ -85,11 +87,17 @@
     <div class="col-md-3">
       <h3>Sách hay xem nhiều</h3>
       <div class="row mt-2">
-        <div class="col-md-5"><img class="img img-responsive" width="100%" class="card-img-top" src="{{asset('public/uploads/truyen/nhat-quy-nhi-ma-thu-ba-takagi81.jpg')}}"></div>
-        <div class="col-md-7">
-          <p>Cô gái đến từ hư vô</p>
-          <p><i class="fas fa-eye"></i>6000</p>
+        @foreach($cungtheloai as $key => $value)
+        <div class="col-md-5"><a href="{{url('xem-truyen/'.$value->slug_truyen)}}">
+          <img class="img img-responsive" width="100%" class="card-img-top" src="{{asset('public/uploads/truyen/'.$value->hinhanh)}}">
+          </a>   
         </div>
+        <div class="col-md-7">
+          <p>{{$value->tentruyen}}</p>
+          <p><i class="fas fa-eye"></i> {{$value->danhmuctruyen->tendanhmuc}}</p>
+        </div>
+        @endforeach
+        
       </div>
     </div>
   </div>

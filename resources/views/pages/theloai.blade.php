@@ -2,12 +2,18 @@
 {{-- @section('slide') 
 @include('pages.slide')
 @endsection --}}
-@section('content')            
+@section('content')   
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{{url('/')}}">Trang chủ</a></li>    
+      <li class="breadcrumb-item active" aria-current="page">{{$tentheloai}}</li>
+    </ol>
+</nav>          
 <!----------------Sách mới--------------------->
 
 <div class="album py-5 bg-light">
   <div class="container">
-    <h3>Thể loại : {{$tentheloai}}</h3>
+    <h4>Thể loại : {{$tentheloai}}</h4>
     <div class="row">
       @php
         $count = count($truyen);
