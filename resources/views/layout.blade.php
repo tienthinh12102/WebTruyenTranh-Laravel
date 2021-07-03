@@ -78,10 +78,10 @@
             <footer class="text-muted">
               <div class="container">
                 <p class="float-right">
-                  <a href="#">Back to top</a>
+                  <a href="#">Quay lại trang đầu</a>
                 </p>
-                <p>Album example is © Bootstrap, but please download and customize it for yourself!</p>
-                <p>New to Bootstrap? <a href="../../">Visit the homepage</a> or read our <a href="../../getting-started/">getting started guide</a>.</p>
+                <p>Web truyện tranh 247 </p>
+                <p>Đọc truyện hay, mới nhất tại <a href="../../">Truyen tranh 247</a> hoặc tham gia group <a href="../../getting-started/">Truyen Tong Hop</a>.</p>
               </div>
             </footer>
         </div>

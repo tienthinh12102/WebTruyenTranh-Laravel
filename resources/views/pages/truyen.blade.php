@@ -32,7 +32,7 @@
             <li>Thể loại truyện : <a href="{{url('the-loai/'.$truyen->theloai->slug_theloai)}}">{{$truyen->theloai->tentheloai}}</a></li>
             <li>Số chapter : 12</li>
             <li>Số lượt xem : 16248</li>
-            <li><a href="#">Xem mục lục</a></li>
+            <li><a href="{{url('xem-truyen/'.$truyen->slug_truyen)}}#mucluc">Xem mục lục</a></li>
             
             @if($chapter_dau)
               <li><a href="{{url('xem-chapter/'.$chapter_dau->slug_chapter)}}" class="btn btn-primary" >Đọc ngay</a></li>
@@ -43,14 +43,14 @@
           </ul>
         </div>
 
-      </div>
-      <div class="col-md-12">
+      </div >
+      <div id="mucluc" class="col-md-12">
         <hr>
         <p>{!! $truyen->tomtat !!}</p>
       </div>
       
       <hr>
-      <h4>Mục lục</h4>
+      <h4  >Mục lục</h4>
       <ul class="mucluctruyen">
         @php
           $mucluc = count($chapter);
