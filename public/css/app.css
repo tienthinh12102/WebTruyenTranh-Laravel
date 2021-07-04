@@ -10028,3 +10028,46 @@ a.btn.btn-warning.btn-sm {
     margin-top: 2px;
     font-size: 13px;
 }
+/*Background mặc định của body*/
+
+/*Ipad ngang(1024 x 768)*/
+@media screen and (max-width: 1024px){
+    
+}
+/*Ipad dọc(768 x 1024)*/
+@media screen and (max-width: 768px){
+    
+
+}
+/*Tablet nhỏ(480 x 640)*/
+@media screen and (max-width: 480px){
+    .item {
+    width: 200px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    }
+    a.btn.btn-warning.btn-sm {
+    margin: 10px;
+    width: 100px;
+    
+    }
+    .col-md-4 {
+    margin-left: auto;
+    margin-right: auto;
+    }
+    
+
+}
+/*Iphone(480 x 640)*/
+@media screen and (max-width: 320px){
+    a.btn.btn-warning.btn-sm {
+    margin: 10px;
+    width: 80px;
+    margin-left: 70px;
+    }
+}
+/*Smart phone nhỏ*/
+@media screen and (max-width: 240px){
+    
+}

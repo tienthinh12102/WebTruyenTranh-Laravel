@@ -112,8 +112,6 @@
             $('#search_ajax').fadeOut();
           });
         </script>
-        $()
-        
 
         <script type="text/javascript">
             $('.owl-carousel').owlCarousel({
