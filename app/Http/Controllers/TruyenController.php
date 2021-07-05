@@ -51,6 +51,7 @@ class TruyenController extends Controller
                 'tacgia' => 'required',
                 'danhmuc' => 'required',
                 'theloai' => 'required',
+                'tukhoa' => 'required',
             ],
             [
                 'tentruyen.unique' => 'Slug truyện đã có vui lòng điền tên khác',
@@ -61,6 +62,7 @@ class TruyenController extends Controller
                 'tacgia.required' => 'Tác giả truyện trống',
                 'hinhanh.required' => 'Hình ảnh truyện trống',
                 'theloai.required' => 'Thể loại truyện trống',
+                'tukhoa.required' => 'Thể loại truyện trống',
             ]
         );
         $truyen = new Truyen();
@@ -71,6 +73,7 @@ class TruyenController extends Controller
         $truyen->kichhoat = $data['kichhoat'];
         $truyen->danhmuc_id = $data['danhmuc'];
         $truyen->theloai_id = $data['theloai'];
+        $truyen->tukhoa = $data['tukhoa'];
 
         $get_image = $request->hinhanh;
         $path = 'public/uploads/truyen/';
@@ -128,6 +131,7 @@ class TruyenController extends Controller
                 'tacgia' => 'required',
                 'danhmuc' => 'required',
                 'theloai' => 'required',
+                'tukhoa' => 'required',
             ],
             [
                 'tacgia.required' => 'Tác giả truyện trống',
@@ -135,6 +139,7 @@ class TruyenController extends Controller
                 'tentruyen.required' => 'Tên truyện trống',
                 'tomtat.required' => 'Tóm tắt danh mục trống',
                 'theloai.required' => 'Thể loại truyện trống',
+                'tukhoa.required' => 'Từ khóa truyện trống',
                 
             ]
         );
@@ -146,6 +151,7 @@ class TruyenController extends Controller
         $truyen->kichhoat = $data['kichhoat'];
         $truyen->danhmuc_id = $data['danhmuc'];
         $truyen->theloai_id = $data['theloai'];
+        $truyen->tukhoa = $data['tukhoa'];
         //them anh vao folder
         $get_image = $request->hinhanh;
         if($get_image){

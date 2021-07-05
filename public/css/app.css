@@ -10002,10 +10002,10 @@ h3 {
     border-color: #dee2e6;
   }
 }
-a.btn.btn-success {
+/*a.btn.btn-success {
     width: 68px;
     margin-bottom: 5px;
-}
+}*/
 img.img.img-responsive {
     margin-bottom: 8px;
 }
@@ -10014,12 +10014,12 @@ ul.dropdown-menu {
     padding-left: 10px;
     padding-right: 20px;
 }
-a.btn.btn-success {
+/*a.btn.btn-success {
     width: 100px;
     height: 50px;
     padding: 12px;
     font-size: 15px;
-}
+}*/
 a.btn.btn-warning.btn-sm {
     width: 80px;
     margin-left: -28px;

@@ -48,10 +48,11 @@ class IndexController extends Controller
      	
      	$chapter = Chapter::with('truyen')->orderBy('id','DESC')->where('truyen_id',$truyen->id)->get();
      	$chapter_dau = Chapter::with('truyen')->orderBy('id','ASC')->where('truyen_id',$truyen->id)->first();
+        $chapter_cuoi = Chapter::with('truyen')->orderBy('id','DESC')->where('truyen_id',$truyen->id)->first();
 
      	$cungdanhmuc = Truyen::with('danhmuctruyen','theloai')->where('danhmuc_id',$truyen->danhmuctruyen->id)->whereNotIn('id',[$truyen->id])->get();
         $cungtheloai = Truyen::with('danhmuctruyen','theloai')->where('theloai_id',$truyen->theloai->id)->whereNotIn('id',[$truyen->id])->get();
-    	return view('pages.truyen')->with(compact('danhmuc','truyen','chapter','cungdanhmuc','chapter_dau','theloai','cungtheloai','slide_truyen'));
+    	return view('pages.truyen')->with(compact('danhmuc','truyen','chapter','cungdanhmuc','chapter_dau','theloai','cungtheloai','slide_truyen','chapter_cuoi'));
     }
     public function xemchapter($slug){
         $theloai = Theloai::orderBy('id','DESC')->get();
@@ -98,6 +99,32 @@ class IndexController extends Controller
             $output .= '</ul>';
             echo $output;
         }
+    }
+    public function tag($tag){
+        // $info = Info::find(1);
+        // $title = 'Tìm kiếm tags';
+        // //seo
+        // $meta_desc = 'Tìm kiếm tags';
+        // $meta_keywords = 'Tìm kiếm tags';
+        // $url_canonical = \URL::current();
+        // $og_image = url('public/uploads/logo'.$info->logo);
+        // $link_icon = url('public/uploads/logo'.$info->logo);
+
+        $theloai = Theloai::orderBy('id','DESC')->get();
+        $danhmuc = DanhmucTruyen::orderBy('id','DESC')->get();
+        $slide_truyen = Truyen::orderBy('id','DESC')->where('kichhoat',0)->take(8)->get();
+
+        $tags = explode("-", $tag);
+
+        $truyen = Truyen::with('danhmuctruyen','theloai')->where(
+            function ($query) use ($tags) {
+                for ($i=0; $i < count($tags) ; $i++) { 
+                    $query->orWhere('tukhoa','like','%' . $tags[$i] . '%');
+                }
+            }
+        )->paginate(12);
+        return view('pages.tag')->with(compact('danhmuc','theloai','truyen','slide_truyen','tag'));
+
     }
 
 }

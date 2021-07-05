@@ -21,7 +21,7 @@ use App\Http\Controllers\TheloaiController;
 Route::get('/', [IndexController::class,'home']);
 Route::get('/danh-muc/{slug}', [IndexController::class,'danhmuc']);
 Route::get('/the-loai/{slug}', [IndexController::class,'theloai']);
-
+Route::get('/tag/{tag}', [IndexController::class,'tag']);
 
 Route::get('/xem-truyen/{slug}', [IndexController::class,'xemtruyen']);
 Route::get('/xem-chapter/{slug}', [IndexController::class,'xemchapter']);
