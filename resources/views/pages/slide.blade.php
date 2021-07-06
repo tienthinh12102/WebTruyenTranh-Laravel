@@ -1,6 +1,6 @@
 
 
-<h3>SÁCH NÊN ĐỌC</h3>
+<h3 class="mt-3">SÁCH NÊN ĐỌC</h3>
 <div class="owl-carousel owl-theme">
     @foreach($slide_truyen as $key => $value)
     <div class="item">

@@ -10010,9 +10010,12 @@ img.img.img-responsive {
     margin-bottom: 8px;
 }
 ul.dropdown-menu {
-    margin-left: 830px;
+    margin-left: 5px;
     padding-left: 10px;
-    padding-right: 20px;
+    padding-right: 10px;
+}
+ul.dropdown-menu li a{
+    color: black;
 }
 /*a.btn.btn-success {
     width: 100px;
@@ -10084,9 +10087,26 @@ a.btn.btn-warning.btn-sm {
 .noidung_color{
   color: #fff;
 }
+.bg_dark{
+  background-color: #202020 !important;
+}
+.bg_white{
+  background-color: white !important;
+  color: black;
+}
+
 
 /*end chỉnh màu*/
 svg.w-5.h-5 {
     width: 20px;
     height: 100%;
+}
+a.nav-link {
+    font-size: 20px;
+}
+a.dropdown-item {
+    font-size: 20px;
+}
+.dropdown-menu.show {
+    margin-left: -18px;
 }
