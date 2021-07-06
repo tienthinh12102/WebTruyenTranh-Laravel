@@ -32,6 +32,10 @@
             </li>
             <li><b>{{$truyen->tentruyen}}</b></li>
             <li>Tác giả : {{$truyen->tacgia}}</li>
+            <li>Ngày đăng : {{$truyen->created_at->diffForHumans()}}</li>
+            @if($truyen->updated_at != '')
+            <li>Ngày cập nhật : {{$truyen->updated_at->diffForHumans()}}</li>
+            @endif()
             <li>Danh mục truyện : <a href="{{url('danh-muc/'.$truyen->danhmuctruyen->slug_danhmuc)}}">{{$truyen->danhmuctruyen->tendanhmuc}}</a></li>
             <li>Thể loại truyện : <a href="{{url('the-loai/'.$truyen->theloai->slug_theloai)}}">{{$truyen->theloai->tentheloai}}</a></li>
             <li>Số chapter : 12</li>

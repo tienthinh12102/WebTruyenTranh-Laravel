@@ -64,6 +64,10 @@
                           <input class="form-control mr-sm-2" id="keywords" type="search" name="tukhoa" placeholder="Tìm kiếm truyện, tác giả ..." aria-label="Search">
                           <div id="search_ajax"></div>
                           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm kiếm</button>
+                          <select class="custom-select mr-sm-2" id="switch_color">
+                            <option value="xam">Xám</option>
+                            <option value="den">Đen</option>
+                          </select>
                         </form>
                       </div>                 
                     </div>                
@@ -93,6 +97,24 @@
         <script src="{{ asset('js/app.js') }}" defer></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+        <script type="text/javascript">
+          $(document).ready(function(){
+
+            $('#switch_color').change(function(){
+              $(document.body).toggleClass('switch_color');
+              $('.album').toggleClass('switch_color_light');
+              $('.card-body').toggleClass('switch_color');
+              $('.noidungchuong').toggleClass('noidung_color');
+              $('ul.mucluctruyen > li > a').css('color','#fff');
+              $('.btn.btn-sm').css('color','#fff');
+              $('.text-muted').css('color','#fff');
+            });
+          });
+          
+        </script>
+
+
         <script type="text/javascript">
           $('#keywords').keyup(function(){
               var query = $(this).val();

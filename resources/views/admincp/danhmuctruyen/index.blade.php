@@ -4,7 +4,7 @@
 @include('layouts.nav')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-10">
             <div class="card">
                 <div class="card-header">Liệt kê danh mục</div>
 
@@ -39,8 +39,8 @@
                                 <span class="text text-danger">Không kích hoạt</span>
                               @endif
                           </td>
-                          <td>
-                            <a href="{{route('danhmuc.edit',[$danhmuc->id])}}" class="btn btn-success">Edit</a>
+                          <td>                        
+                              <a href="{{route('danhmuc.edit',[$danhmuc->id])}}" class="btn btn-success" style="width: 68px;margin-bottom: 5px;">Edit</a>                                  
                               <form action="{{ route('danhmuc.destroy',[$danhmuc->id])}}" method="POST">
                                   @method('DELETE')
                                   @csrf

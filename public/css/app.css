@@ -9868,7 +9868,7 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 .text-muted {
-  color: #6c757d !important;
+  color: #6c757d;
 }
 
 .text-black-50 {
@@ -10070,4 +10070,23 @@ a.btn.btn-warning.btn-sm {
 /*Smart phone nhỏ*/
 @media screen and (max-width: 240px){
     
+}
+
+/*Chỉnh màu nền background*/
+.switch_color{
+  background: #181818;
+  color: #fff;
+}
+.switch_color_light{
+  background: #181818 !important;
+  color: #000;
+}
+.noidung_color{
+  color: #fff;
+}
+
+/*end chỉnh màu*/
+svg.w-5.h-5 {
+    width: 20px;
+    height: 100%;
 }

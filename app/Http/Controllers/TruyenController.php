@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 use App\Models\DanhmucTruyen;
 use App\Models\Truyen;
 use App\Models\Theloai;
@@ -74,6 +75,8 @@ class TruyenController extends Controller
         $truyen->danhmuc_id = $data['danhmuc'];
         $truyen->theloai_id = $data['theloai'];
         $truyen->tukhoa = $data['tukhoa'];
+
+        $truyen->created_at = Carbon::now('Asia/Ho_Chi_Minh');
 
         $get_image = $request->hinhanh;
         $path = 'public/uploads/truyen/';
@@ -152,6 +155,9 @@ class TruyenController extends Controller
         $truyen->danhmuc_id = $data['danhmuc'];
         $truyen->theloai_id = $data['theloai'];
         $truyen->tukhoa = $data['tukhoa'];
+
+        $truyen->updated_at = Carbon::now('Asia/Ho_Chi_Minh');
+
         //them anh vao folder
         $get_image = $request->hinhanh;
         if($get_image){

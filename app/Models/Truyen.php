@@ -9,9 +9,14 @@ class Truyen extends Model
 {
     use HasFactory;
 
+    protected $dates = [
+        'created_at',
+        'updated_at'
+    ];
+
     public $timestamps = false;
     protected $fillable = [
-    	'tentruyen','tomtat','kichhoat','slug_truyen','hinhanh','danhmuc_id','tacgia','theloai_id','tukhoa',
+    	'tentruyen','tomtat','kichhoat','slug_truyen','hinhanh','danhmuc_id','tacgia','theloai_id','tukhoa','created_at','updated_at',
     ];
     protected $primaryKey = 'id';
     protected $table = 'truyen';

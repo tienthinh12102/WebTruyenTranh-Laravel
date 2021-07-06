@@ -25,6 +25,8 @@
                           <th scope="col">Danh mục</th>
                           <th scope="col">Thể loại</th>
                           <th scope="col">Kích hoạt</th>
+                          <th scope="col">Ngày đăng</th>
+                          <th scope="col">Ngày cập nhật</th>
                           <th scope="col">Quản lý</th>
                         </tr>
                       </thead>
@@ -45,6 +47,13 @@
                                 <span class="text text-danger">Không kích hoạt</span>
                               @endif
                           </td>
+                          <td>{{$truyen->created_at}} - {{$truyen->created_at->diffForHumans()}}</td>
+                          <td>
+                            @if($truyen->updated_at != '')
+                            {{$truyen->updated_at}} - {{$truyen->updated_at->diffForHumans()}}
+                            @endif
+                          </td>
+
                           <td>
                             <a href="{{route('truyen.edit',[$truyen->id])}}" class="btn btn-success">Edit</a>
                               <form action="{{ route('truyen.destroy',[$truyen->id])}}" method="POST">

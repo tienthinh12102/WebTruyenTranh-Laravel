@@ -22,16 +22,24 @@
                 <a href="{{url('xem-truyen/'. $value->slug_truyen)}}" class="btn btn-sm btn-outline-secondary">Đọc ngay</a>
                 <a class="btn btn-sm btn-outline-secondary"><i class="fas fa-eye"></i>6000</a>
               </div>
-              <small class="text-muted">9 phút trước</small>
+              <small class="text-muted ml-2">{{$value->created_at->diffForHumans()}}</small>
             </div>           
           </div>
         </div>
       </div>
-      @endforeach  
+      @endforeach 
+
     </div>
+
+
     <a class="btn btn-success" href="">Xem tất cả</a>
+    <div>
+      {!! $truyen->links() !!} 
+    </div>
+    
   </div>
 </div>
+
 
 
 <!----------------Sách hay xem--------------------->

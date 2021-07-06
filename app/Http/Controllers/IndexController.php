@@ -12,7 +12,7 @@ class IndexController extends Controller
     public function home(){
         $theloai = Theloai::orderBy('id','DESC')->get();
     	$danhmuc = DanhmucTruyen::orderBy('id','DESC')->get();
-    	$truyen = Truyen::orderBy('id','DESC')->where('kichhoat',0)->get();
+    	$truyen = Truyen::orderBy('id','DESC')->where('kichhoat',0)->paginate(8);
 
         $truyen_xemnhieu = Truyen::orderBy('id','ASC')->where('kichhoat',0)->take(4)->get();
 
