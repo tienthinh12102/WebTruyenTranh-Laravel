@@ -27,6 +27,11 @@
           
 
           <ul class="infotruyen">
+            {{-- Lấy biến wishlist --}}
+            <input type="hidden" value="{{$truyen->tentruyen}}" class="wishlist_title">
+            <input type="hidden" value="{{\URL::current()}}" class="wishlist_url">
+            <input type="hidden" value="{{$truyen->id}}" class="wishlist_id">
+
             <li>
               <div class="fb-share-button" data-href="{{\URL::current()}}" data-layout="button_count" data-size="small"><a target="_blank" href="{{\URL::current()}}&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Chia sẻ</a></div>
             </li>
@@ -43,7 +48,9 @@
             <li><a href="{{url('xem-truyen/'.$truyen->slug_truyen)}}#mucluc">Xem mục lục</a></li>
             
             @if($chapter_dau)
-              <li><a href="{{url('xem-chapter/'.$chapter_dau->slug_chapter)}}" class="btn btn-primary" >Đọc ngay</a></li>
+              <li><a href="{{url('xem-chapter/'.$chapter_dau->slug_chapter)}}" class="btn btn-primary" >Đọc ngay</a>
+                <button class="btn btn-danger btn-thich_truyen ml-1"><i class="fa fa-heart" aria-hidden="true"></i> Thích truyện</button>
+              </li>
               <li><a href="{{url('xem-chapter/'.$chapter_cuoi->slug_chapter)}}" class="btn btn-success mt-2" >Đọc chương mới nhất</a></li>
             @else
               <li>Đang cập nhật ...</li>
@@ -135,9 +142,7 @@
           @endforeach
         </ul>
       </div>
-
-
-      
+     
       <hr>
       <h4  >Mục lục</h4>
       <ul class="mucluctruyen">
@@ -192,7 +197,11 @@
         @endforeach
         
       </div>
+      <h3>Truyện yêu thích</h3>     
+      <div id = "yeuthich"></div>  
     </div>
+
+    
   </div>
 </div>
 

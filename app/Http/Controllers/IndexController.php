@@ -51,7 +51,7 @@ class IndexController extends Controller
         $chapter_cuoi = Chapter::with('truyen')->orderBy('id','DESC')->where('truyen_id',$truyen->id)->first();
 
      	$cungdanhmuc = Truyen::with('danhmuctruyen','theloai')->where('danhmuc_id',$truyen->danhmuctruyen->id)->whereNotIn('id',[$truyen->id])->get();
-        $cungtheloai = Truyen::with('danhmuctruyen','theloai')->where('theloai_id',$truyen->theloai->id)->whereNotIn('id',[$truyen->id])->get();
+        $cungtheloai = Truyen::with('danhmuctruyen','theloai')->where('theloai_id',$truyen->theloai->id)->whereNotIn('id',[$truyen->id])->take(4)->get();
     	return view('pages.truyen')->with(compact('danhmuc','truyen','chapter','cungdanhmuc','chapter_dau','theloai','cungtheloai','slide_truyen','chapter_cuoi'));
     }
     public function xemchapter($slug){

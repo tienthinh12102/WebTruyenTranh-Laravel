@@ -156,6 +156,81 @@
             }); 
           });     
         </script>
+        {{-- Yeu thích truyện --}}
+        <script type="text/javascript">
+          show_wishlist();
+          function show_wishlist(){
+            if(localStorage.getItem('wishlist_truyen')!=null){
+              var data = JSON.parse(localStorage.getItem('wishlist_truyen'));
+
+              data.reverse();
+              for(i=0;i<data.length;i++){
+                var title = data[i].title;
+                var img = data[i].img;
+                var id = data[i].id;
+                var url = data[i].url;
+
+                $('#yeuthich').append(`
+                  <div class="row mt-2">
+                  <div class="col-md-5"><a href="`+url+`">
+                  <img  class="img img-responsive" width="100%" src="`+ img +`" class="card-img-top" alt="`+title+`"></a>
+                  </div>
+                  <div class="col-md-7">
+                  
+                  <p>`+title+`</p>
+                  
+                  </div>     
+                  </div>
+                  `);
+              }
+            }
+          }
+          $('.btn-thich_truyen').click(function(){
+            $('.fa fa-heart').css('color','#fac');
+            const id = $('.wishlist_id').val();
+            const title = $('.wishlist_title').val();
+            const img = $('.card-img-top').attr('src');
+            const url = $('.wishlist_url').val();
+
+            const item = {
+              'id' : id,
+              'title' : title,
+              'img' : img,
+              'url' : url
+            }
+            if(localStorage.getItem('wishlist_truyen')==null){
+              localStorage.setItem('wishlist_truyen','[]');
+            }
+            var old_data = JSON.parse(localStorage.getItem('wishlist_truyen'));
+            var matches = $.grep(old_data, function(obj){
+              return obj.id == id;
+            })
+            if(matches.length){
+              alert('Truyện đã có trong danh sách yêu thích');
+            }else{
+              if(old_data.length<=5){
+                old_data.push(item);
+              }else{
+                alert('Đã đạt giới hạn lưu truyện yêu thích');
+              }
+              $('#yeuthich').append(`
+                  <div class="row mt-2">
+                  <div class="col-md-5"><a href="`+url+`">
+                  <img  class="img img-responsive" width="100%" src="`+ img +`" class="card-img-top" alt="`+title+`"></a>
+                  </div>
+                  <div class="col-md-7">
+                  
+                  <p>`+title+`</p>
+                  
+                  </div>     
+                  </div>
+                  `);
+              localStorage.setItem('wishlist_truyen', JSON.stringify(old_data));
+              alert('Đã lưu vào danh sách truyện yêu thích');
+            }
+            localStorage.setItem('wishlist_truyen',JSON.stringify(old_data));
+          });
+        </script>
 
 
         <script type="text/javascript">
