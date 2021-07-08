@@ -16,7 +16,7 @@ class Truyen extends Model
 
     public $timestamps = false;
     protected $fillable = [
-    	'tentruyen','tomtat','kichhoat','slug_truyen','hinhanh','danhmuc_id','tacgia','theloai_id','tukhoa','created_at','updated_at',
+    	'tentruyen','tomtat','kichhoat','slug_truyen','hinhanh','danhmuc_id','tacgia','theloai_id','tukhoa','created_at','updated_at','truyen_noibat'
     ];
     protected $primaryKey = 'id';
     protected $table = 'truyen';

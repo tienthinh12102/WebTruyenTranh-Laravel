@@ -63,6 +63,24 @@
                         </select>
                       </div>
                       <div class="form-group">
+                        <label for="exampleInputEmail1">Truyện nổi bật</label>
+                        <select name="truyennoibat" class="custom-select">
+                          @if($truyen->truyen_noibat==0)
+                          <option selected value="0">Truyện mới</option> 
+                          <option value="1">Truyện nổi bật</option>  
+                          <option value="2">Truyện xem nhiều</option>           
+                          @elseif($truyen->truyen_noibat==1)
+                          <option value="0">Truyện mới</option> 
+                          <option selected value="1">Truyện nổi bật</option>  
+                          <option value="2">Truyện xem nhiều</option> 
+                          @else($truyen->truyen_noibat==2)
+                          <option value="0">Truyện mới</option> 
+                          <option value="1">Truyện nổi bật</option>  
+                          <option selected value="2">Truyện xem nhiều</option> 
+                          @endif
+                        </select>
+                      </div>
+                      <div class="form-group">
                         <label for="exampleInputEmail1">Hình ảnh truyện</label>
                         <input type="file" class="form-control-file" name="hinhanh">
                         <img src="{{asset('public/uploads/truyen/'.$truyen->hinhanh)}}" height="70" width="90">

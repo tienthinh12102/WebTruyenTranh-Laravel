@@ -10094,6 +10094,10 @@ a.btn.btn-warning.btn-sm {
   background-color: white !important;
   color: black;
 }
+.tieude {
+    background: #242424;
+    border: #202020;
+}
 
 
 /*end chỉnh màu*/
@@ -10101,7 +10105,10 @@ svg.w-5.h-5 {
     width: 20px;
     height: 100%;
 }
-a.nav-link {
+.nav-item.dropdown a.nav-link {
+    font-size: 20px;
+}
+.nav-item.active a.nav-link {
     font-size: 20px;
 }
 a.dropdown-item {
@@ -10109,4 +10116,12 @@ a.dropdown-item {
 }
 .dropdown-menu.show {
     margin-left: -18px;
+}
+ul.mucluctag_truyen{
+  list-style: none;
+  padding: 0;
+  margin: 10px;
+}
+ul.mucluctag_truyen a{
+  color: #202020
 }

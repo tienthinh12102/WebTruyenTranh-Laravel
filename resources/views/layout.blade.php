@@ -80,6 +80,8 @@
             
             <!----------------Slide--------------------->
             @yield('slide')
+
+            
             <!----------------Content--------------------->
             @yield('content')
 
@@ -102,6 +104,22 @@
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 
+        {{-- Tag danh muc truyen --}}
+        <script type="text/javascript">
+          $('.tabs_danhmuc').click(function(){
+            const danhmuc_id = $(this).data('danhmuc_id');
+            var _token = $('input[name="_token"]').val();
+              $.ajax({
+                url:"{{url('/tabs-danhmuc')}}",
+                method:"POST",
+                data:{danhmuc_id:danhmuc_id, _token:_token},
+                success:function(data){
+                  $('#tab_danhmuctruyen').html(data);         
+                }
+              })
+          })
+        </script>
+
         {{-- Chỉnh bg --}}
         <script type="text/javascript">
           $(document).ready(function(){
@@ -123,6 +141,7 @@
               $('.nav-link').css('color','#fff');
               $('.navbar-brand').css('color','#fff');
               $('.card.mb-3.box-shadow').css('background','#242424');
+              $('h3.card-header').toggleClass('tieude');
               
 
               $("select option[value='toi']").attr("selected","selected");
@@ -143,6 +162,7 @@
               $('.nav-link').css('color','#fff');
               $('.navbar-brand').css('color','#fff');
               $('.card.mb-3.box-shadow').css('background','#242424');
+              $('h3.card-header').toggleClass('tieude');
               if($(this).val() == 'toi'){
                 var item = {
                   'class_1' : 'switch_color',

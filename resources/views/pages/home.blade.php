@@ -2,9 +2,22 @@
 @section('slide') 
 @include('pages.slide')
 @endsection
-@section('content')            
+@section('content')
+<!-- Nav tabs -->
+<ul class="nav nav-tabs">
+
+  @foreach($danhmuc as $key => $value)
+  <form>
+    @csrf
+  <li class="nav-item">
+    <a data-danhmuc_id="{{$value->id}}" class="nav-link tabs_danhmuc" data-toggle="tab" href="#{{$value->slug_danhmuc}}">{{$value->tendanhmuc}}</a>
+  </li>
+  </form>
+  @endforeach
+</ul>
+<div id="tab_danhmuctruyen"></div>        
 <!----------------Sách mới--------------------->
-<h3>SÁCH MỚI CẬP NHẬT</h3>
+<h3>TRUYỆN MỚI CẬP NHẬT</h3>
 <div class="album py-5 bg-light">
   <div class="container">
 
@@ -29,13 +42,14 @@
       </div>
       @endforeach 
 
+      <div class="col-md-3">
+      <p>{!! $truyen->links() !!}</p>
+      </div>
     </div>
 
 
-    <a class="btn btn-success" href="">Xem tất cả</a>
-    <div>
-      {!! $truyen->links() !!} 
-    </div>
+    <a class="btn btn-success mt-2" href="">Xem tất cả</a>
+    
     
   </div>
 </div>
@@ -60,7 +74,7 @@
                 <a href="{{url('xem-truyen/'. $value->slug_truyen)}}" class="btn btn-sm btn-outline-secondary">Đọc ngay</a>
                 <a class="btn btn-sm btn-outline-secondary"><i class="fas fa-eye"></i>6000</a>
               </div>
-              <small class="text-muted">9 phút trước</small>
+              <small class="text-muted">{{$value->created_at->diffForHumans()}}</small>
             </div>           
           </div>
         </div>

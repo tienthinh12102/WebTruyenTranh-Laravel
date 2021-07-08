@@ -27,6 +27,8 @@ Route::get('/xem-truyen/{slug}', [IndexController::class,'xemtruyen']);
 Route::get('/xem-chapter/{slug}', [IndexController::class,'xemchapter']);
 
 Route::post('/autocomplete-ajax', [IndexController::class,'autocomplete_ajax']);
+Route::post('/truyennoibat', [TruyenController::class,'truyennoibat']);
+Route::post('/tabs-danhmuc', [IndexController::class,'tabs_danhmuc']);
 Route::get('/tim-kiem', [IndexController::class,'timkiem']);
 
 Auth::routes();

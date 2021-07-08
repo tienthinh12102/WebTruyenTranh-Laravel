@@ -53,6 +53,7 @@ class TruyenController extends Controller
                 'danhmuc' => 'required',
                 'theloai' => 'required',
                 'tukhoa' => 'required',
+                'truyennoibat' => 'required',
             ],
             [
                 'tentruyen.unique' => 'Slug truyện đã có vui lòng điền tên khác',
@@ -64,6 +65,7 @@ class TruyenController extends Controller
                 'hinhanh.required' => 'Hình ảnh truyện trống',
                 'theloai.required' => 'Thể loại truyện trống',
                 'tukhoa.required' => 'Thể loại truyện trống',
+                'truyennoibat.required' => 'Thể loại truyện trống',
             ]
         );
         $truyen = new Truyen();
@@ -75,6 +77,7 @@ class TruyenController extends Controller
         $truyen->danhmuc_id = $data['danhmuc'];
         $truyen->theloai_id = $data['theloai'];
         $truyen->tukhoa = $data['tukhoa'];
+        $truyen->truyen_noibat = $data['truyennoibat'];
 
         $truyen->created_at = Carbon::now('Asia/Ho_Chi_Minh');
 
@@ -135,6 +138,7 @@ class TruyenController extends Controller
                 'danhmuc' => 'required',
                 'theloai' => 'required',
                 'tukhoa' => 'required',
+                'truyennoibat' => 'required',
             ],
             [
                 'tacgia.required' => 'Tác giả truyện trống',
@@ -143,7 +147,7 @@ class TruyenController extends Controller
                 'tomtat.required' => 'Tóm tắt danh mục trống',
                 'theloai.required' => 'Thể loại truyện trống',
                 'tukhoa.required' => 'Từ khóa truyện trống',
-                
+                'truyennoibat.required' => 'Từ khóa truyện trống',
             ]
         );
         $truyen = Truyen::find($id);
@@ -155,6 +159,7 @@ class TruyenController extends Controller
         $truyen->danhmuc_id = $data['danhmuc'];
         $truyen->theloai_id = $data['theloai'];
         $truyen->tukhoa = $data['tukhoa'];
+        $truyen->truyen_noibat = $data['truyennoibat'];
 
         $truyen->updated_at = Carbon::now('Asia/Ho_Chi_Minh');
 
@@ -191,5 +196,11 @@ class TruyenController extends Controller
         }
         Truyen::find($id)->delete();
         return redirect()->back()->with('status','Xóa truyện thành công');
+    }
+    public function truyennoibat(Request $request){
+        $data = $request->all();
+        $truyen = Truyen::find($data['truyen_id']);
+        $truyen->truyen_noibat = $data['truyennoibat'];
+        $truyen->save();
     }
 }

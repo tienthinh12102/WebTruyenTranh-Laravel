@@ -2,7 +2,7 @@
 
 @section('content')
 @include('layouts.nav')
-<div class="container">
+<div class="container-fluid">{{-- thêm -fluid để mở rộng --}}
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
@@ -25,6 +25,7 @@
                           <th scope="col">Danh mục</th>
                           <th scope="col">Thể loại</th>
                           <th scope="col">Kích hoạt</th>
+                          <th scope="col">Tình trạng</th>
                           <th scope="col">Ngày đăng</th>
                           <th scope="col">Ngày cập nhật</th>
                           <th scope="col">Quản lý</th>
@@ -40,13 +41,43 @@
                           {{-- <td>{{$truyen->tomtat}}</td> --}}
                           <td>{{$truyen->danhmuctruyen->tendanhmuc}}</td>
                           <td>{{$truyen->theloai->tentheloai}}</td>
-                          <td>
+                          <td width="6%">
                               @if($truyen->kichhoat==0)
                                 <span class="text text-success">Kích hoạt</span>
                               @else
                                 <span class="text text-danger">Không kích hoạt</span>
                               @endif
                           </td>
+                          <td width="13%">
+                            @if($truyen->truyen_noibat==0)
+                            <form>
+                              @csrf
+                              <select name="truyennoibat" data-truyen_id="{{$truyen->id}}" class="custom-select truyennoibat">
+                                <option selected value="0">Truyện mới</option> 
+                                <option value="1">Truyện nổi bật</option>  
+                                <option value="2">Truyện xem nhiều</option>
+                              </select>
+                            </form>           
+                            @elseif($truyen->truyen_noibat==1)
+                            <form>
+                              @csrf
+                             <select name="truyennoibat" data-truyen_id="{{$truyen->id}}" class="custom-select truyennoibat">
+                              <option value="0">Truyện mới</option> 
+                              <option selected value="1">Truyện nổi bật</option>  
+                              <option value="2">Truyện xem nhiều</option> 
+                            </select>
+                          </form>
+                          @else
+                          <form>
+                            @csrf
+                           <select name="truyennoibat" data-truyen_id="{{$truyen->id}}" class="custom-select truyennoibat">
+                            <option value="0">Truyện mới</option> 
+                            <option value="1">Truyện nổi bật</option>  
+                            <option selected value="2">Truyện xem nhiều</option> 
+                          </select>
+                        </form>
+                        @endif
+                      </td>
                           <td>{{$truyen->created_at}} - {{$truyen->created_at->diffForHumans()}}</td>
                           <td>
                             @if($truyen->updated_at != '')

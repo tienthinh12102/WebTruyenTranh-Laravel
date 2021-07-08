@@ -9,10 +9,27 @@ use App\Models\Chapter;
 use App\Models\Theloai;
 class IndexController extends Controller
 {
+    public function tabs_danhmuc(Request $request){
+        $data = $request->all();
+        $output = '';
+        $truyen = Truyen::with('danhmuctruyen','theloai')->where('danhmuc_id',$data['danhmuc_id'])->take(10)->get();
+        foreach ($truyen as $key => $value) {
+            $output.='
+
+                <ul class="mucluctag_truyen">
+
+                    <li><a href="xem-truyen/'.$value->slug_truyen.'">'.$value->tentruyen.'</a></li>
+              
+                </ul>
+
+            ';
+        }
+        echo $output;
+    }
     public function home(){
         $theloai = Theloai::orderBy('id','DESC')->get();
     	$danhmuc = DanhmucTruyen::orderBy('id','DESC')->get();
-    	$truyen = Truyen::orderBy('id','DESC')->where('kichhoat',0)->paginate(8);
+    	$truyen = Truyen::orderBy('id','DESC')->where('kichhoat',0)->simplePaginate(8);
 
         $truyen_xemnhieu = Truyen::orderBy('id','ASC')->where('kichhoat',0)->take(4)->get();
 
@@ -45,6 +62,8 @@ class IndexController extends Controller
      	$danhmuc = DanhmucTruyen::orderBy('id','DESC')->get();
         $slide_truyen = Truyen::orderBy('id','DESC')->where('kichhoat',0)->take(3)->get();
      	$truyen = Truyen::with('danhmuctruyen','theloai')->where('slug_truyen',$slug)->where('kichhoat',0)->first();
+        $truyennoibat = Truyen::where('truyen_noibat',1)->take(4)->get();
+        $truyenxemnhieu = Truyen::where('truyen_noibat',2)->take(4)->get();
      	
      	$chapter = Chapter::with('truyen')->orderBy('id','DESC')->where('truyen_id',$truyen->id)->get();
      	$chapter_dau = Chapter::with('truyen')->orderBy('id','ASC')->where('truyen_id',$truyen->id)->first();
@@ -52,7 +71,7 @@ class IndexController extends Controller
 
      	$cungdanhmuc = Truyen::with('danhmuctruyen','theloai')->where('danhmuc_id',$truyen->danhmuctruyen->id)->whereNotIn('id',[$truyen->id])->get();
         $cungtheloai = Truyen::with('danhmuctruyen','theloai')->where('theloai_id',$truyen->theloai->id)->whereNotIn('id',[$truyen->id])->take(4)->get();
-    	return view('pages.truyen')->with(compact('danhmuc','truyen','chapter','cungdanhmuc','chapter_dau','theloai','cungtheloai','slide_truyen','chapter_cuoi'));
+    	return view('pages.truyen')->with(compact('danhmuc','truyen','chapter','cungdanhmuc','chapter_dau','theloai','cungtheloai','slide_truyen','chapter_cuoi','truyennoibat','truyenxemnhieu'));
     }
     public function xemchapter($slug){
         $theloai = Theloai::orderBy('id','DESC')->get();

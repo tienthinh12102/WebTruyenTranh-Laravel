@@ -66,6 +66,14 @@
                         <input type="file" class="form-control-file" name="hinhanh">
                       </div>
                       <div class="form-group">
+                        <label for="exampleInputEmail1">Truyện nổi bật</label>
+                        <select name="truyennoibat" class="custom-select">
+                          <option value="0">Truyện mới</option>
+                          <option value="1">Truyện nổi bật</option>
+                          <option value="2">Truyện xem nhiều</option>
+                        </select>
+                      </div>
+                      <div class="form-group">
                         <label for="exampleInputEmail1">Kích hoạt danh mục</label>
                         <select name="kichhoat" class="custom-select">
                           <option value="0">Kích hoạt</option>

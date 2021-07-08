@@ -27,7 +27,7 @@
           
 
           <ul class="infotruyen">
-            {{-- Lấy biến wishlist --}}
+            {{-- Lấy biến wishlist (truyen yeu thich) --}}
             <input type="hidden" value="{{$truyen->tentruyen}}" class="wishlist_title">
             <input type="hidden" value="{{\URL::current()}}" class="wishlist_url">
             <input type="hidden" value="{{$truyen->id}}" class="wishlist_id">
@@ -160,7 +160,7 @@
 
       <h4>Bình luận và chia sẻ</h4>
       <div class="fb-share-button" data-href="{{\URL::current()}}" data-layout="button_count" data-size="small"><a target="_blank" href="{{\URL::current()}} &amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Chia sẻ</a></div>
-      <div class="fb-comments" data-href="{{\URL::current()}}" data-width="100%" data-numposts="10"></div>
+      <div class="fb-comments" data-href="{{\URL::current()}}" data-width="100%" data-numposts="10" ></div>
 
       <!----------------Sách cùng danh mục--------------------->
       <h4>Truyện cùng danh mục</h4>
@@ -179,25 +179,36 @@
         @endforeach
       </div>
 
-
-
     </div>
     <div class="col-md-3">
-      <h3>Sách hay xem nhiều</h3>
+      <h3 class="card-header">Truyện nổi bật</h3>
       <div class="row mt-2">
-        @foreach($cungtheloai as $key => $value)
+        @foreach($truyennoibat as $key => $value)
         <div class="col-md-5"><a href="{{url('xem-truyen/'.$value->slug_truyen)}}">
           <img class="img img-responsive" width="100%" class="card-img-top" src="{{asset('public/uploads/truyen/'.$value->hinhanh)}}">
           </a>   
         </div>
         <div class="col-md-7">
           <p>{{$value->tentruyen}}</p>
-          <p><i class="fas fa-eye"></i> {{$value->danhmuctruyen->tendanhmuc}}</p>
+          <p><i class="fas fa-eye"></i> 8k</p>
+        </div>
+        @endforeach
+      </div>
+      <h3 class="card-header">Truyện xem nhiều</h3>
+      <div class="row mt-2">
+        @foreach($truyenxemnhieu as $key => $value)
+        <div class="col-md-5"><a href="{{url('xem-truyen/'.$value->slug_truyen)}}">
+          <img class="img img-responsive" width="100%" class="card-img-top" src="{{asset('public/uploads/truyen/'.$value->hinhanh)}}">
+          </a>   
+        </div>
+        <div class="col-md-7">
+          <p>{{$value->tentruyen}}</p>
+          <p><i class="fas fa-eye"></i> 14k</p>
         </div>
         @endforeach
         
       </div>
-      <h3>Truyện yêu thích</h3>     
+      <h3 class="card-header">Truyện yêu thích</h3>     
       <div id = "yeuthich"></div>  
     </div>
 
