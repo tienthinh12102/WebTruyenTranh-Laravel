@@ -105,6 +105,7 @@ class IndexController extends Controller
         $truyen = Truyen::with('danhmuctruyen','theloai')->where('tentruyen','LIKE','%'.$tukhoa.'%')->orWhere('tacgia','LIKE','%'.$tukhoa.'%')->get();
         return view('pages.timkiem')->with(compact('danhmuc','truyen','theloai','slide_truyen','tukhoa'));
     }
+    // Tìm kiếm nâng cao đổ dropmenu xuống
     public function autocomplete_ajax(Request $request){
         $data = $request->all();
 

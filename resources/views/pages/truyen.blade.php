@@ -65,72 +65,6 @@
         <p>{!! $truyen->tomtat !!}</p>
       </div>
       <!----------------Tag--------------------->
-      <style type="text/css">
-        .tagcloud05 ul {
-          margin: 0;
-          padding: 0;
-          list-style: none;
-        }
-        .tagcloud05 ul li {
-          display: inline-block;
-          margin: 0 0 .3em 1em;
-          padding: 0;
-        }
-        .tagcloud05 ul li a {
-          position: relative;
-          display: inline-block;
-          height: 30px;
-          line-height: 30px;
-          padding: 0 1em;
-          background-color: #3498db;
-          border-radius: 0 3px 3px 0;
-          color: #fff;
-          font-size: 13px;
-          text-decoration: none;
-          -webkit-transition: .2s;
-          transition: .2s;
-        }
-        .tagcloud05 ul li a::before {
-          position: absolute;
-          top: 0;
-          left: -15px;
-          content: '';
-          width: 0;
-          height: 0;
-          border-color: transparent #3498db transparent transparent;
-          border-style: solid;
-          border-width: 15px 15px 15px 0;
-          -webkit-transition: .2s;
-          transition: .2s;
-        }
-        .tagcloud05 ul li a::after {
-          position: absolute;
-          top: 50%;
-          left: 0;
-          z-index: 2;
-          display: block;
-          content: '';
-          width: 6px;
-          height: 6px;
-          margin-top: -3px;
-          background-color: #fff;
-          border-radius: 100%;
-        }
-        .tagcloud05 ul li span {
-          display: block;
-          max-width: 100px;
-          white-space: nowrap;
-          text-overflow: ellipsis;
-          overflow: hidden;
-        }
-        .tagcloud05 ul li a:hover {
-          background-color: #555;
-          color: #fff;
-        }
-        .tagcloud05 ul li a:hover::before {
-          border-right-color: #555;
-        }
-      </style>
       <p>Từ khóa tìm kiếm : </p>
       @php
         $tukhoa = explode(",", $truyen->tukhoa);
@@ -158,10 +92,12 @@
         @endif
       </ul>
 
-      <h4>Bình luận và chia sẻ</h4>
-      <div class="fb-share-button" data-href="{{\URL::current()}}" data-layout="button_count" data-size="small"><a target="_blank" href="{{\URL::current()}} &amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Chia sẻ</a></div>
-      <div class="fb-comments" data-href="{{\URL::current()}}" data-width="100%" data-numposts="10" ></div>
-
+      <!----------------Facebook--------------------->
+      <div class="card-header facebook-comments">
+        <div class="box-header"><h4>Bình luận và chia sẻ</h4></div>   
+        <div class="fb-share-button" data-href="{{\URL::current()}}" data-layout="button_count" data-size="small"><a target="_blank" href="{{\URL::current()}} &amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Chia sẻ</a></div>
+        <div class="fb-comments" data-href="{{\URL::current()}}" data-width="100%" data-numposts="10" ></div>
+      </div>
       <!----------------Sách cùng danh mục--------------------->
       <h4>Truyện cùng danh mục</h4>
       <div class="row">

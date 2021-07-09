@@ -52,8 +52,12 @@
 
         </div>
       </div>
-      <div class="fb-share-button" data-href="{{\URL::current()}}" data-layout="button_count" data-size="small"><a target="_blank" href="{{\URL::current()}} &amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Chia sẻ</a></div>
-      <div class="fb-comments" data-href="{{\URL::current()}}" data-width="100%" data-numposts="10"></div>
+      <!----------------Facebook--------------------->
+      <div class="card-header facebook-comments">
+        <div class="box-header"><h4>Bình luận và chia sẻ</h4></div>   
+        <div class="fb-share-button" data-href="{{\URL::current()}}" data-layout="button_count" data-size="small"><a target="_blank" href="{{\URL::current()}} &amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Chia sẻ</a></div>
+        <div class="fb-comments" data-href="{{\URL::current()}}" data-width="100%" data-numposts="10" ></div>
+      </div>
 
       {{-- <h4>Truyện cùng danh mục</h4>
       <div class="row">
