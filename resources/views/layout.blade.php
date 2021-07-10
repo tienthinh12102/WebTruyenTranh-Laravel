@@ -15,13 +15,18 @@
         <link href="{{ asset('css/owl.carousel.min.css') }}" rel="stylesheet">
         <link href="{{ asset('css/owl.theme.default.min.css') }}" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
     </head>
     <body>
+
+      <!-- Go to www.addthis.com/dashboard to customize your tools -->
+      <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-60e90adfefdbcb22"></script>
+
         <div class="container">
             <!----------------Menu--------------------->
             <div>
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                  <a class="navbar-brand" href="{{url('/home')}}">Truyen 247</a>
+                  <a class="navbar-brand" href="{{url('/home')}}"><img width="120px" src="{{url('public/uploads/logo.png')}}"></a>
                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                   </button>
@@ -61,15 +66,19 @@
                   </div>
                 </nav>
             </div>
+            {{-- Go to www.addthis.com/dashboard to customize your tools --}}
+            <div class="addthis_inline_share_toolbox mt-2"></div>
+            <div class="zalo-share-button" data-href="" data-oaid="579745863508352884" data-layout="1" data-color="blue" data-customize=false></div>
+
             <nav class="navbar navbar-expand-lg">
               <div class="row">
               <div class="col-mt-12">
                 <form autocomplete="off" class="form-inline my-2 my-lg-0" action="{{url('tim-kiem')}}">
                   @csrf
-                  <input class="form-control mr-sm-2 ml-2 mt-2" id="keywords" type="search" name="tukhoa" placeholder="Tìm kiếm truyện, tác giả ..." aria-label="Search">
+                  <input class="form-control mr-sm-2" id="keywords" type="search" name="tukhoa" placeholder="Tìm kiếm truyện, tác giả ..." aria-label="Search">
                   <div id="search_ajax"></div>
-                  <button class="btn btn-outline-success mt-2" type="submit">Tìm kiếm</button>
-                  <select class="custom-select mr-sm-2 ml-2 mt-2" id="switch_color">
+                  <button class="btn btn-outline-success" type="submit">Tìm kiếm</button>
+                  <select class="custom-select mr-sm-2 ml-2" id="switch_color">
                     <option value="sang">Sáng</option>
                     <option value="toi">Tối</option>
                   </select>
@@ -310,5 +319,6 @@
             $('.select-chapter').find('option[value="'+url+'"]').attr("selected",true);
           }
         </script>
+        <script src="https://sp.zalo.me/plugins/sdk.js"></script>
     </body>
 </html>

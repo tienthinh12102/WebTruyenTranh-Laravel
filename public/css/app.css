@@ -10201,4 +10201,7 @@ a.nav-link.tabs_danhmuc.active {
   font-family: "Times New Roman", Times, serif;
   font-weight: bold;
 }
+a.btn.btn-primary.ml-2.mt-2 {
+    width: 115px;
+}
 

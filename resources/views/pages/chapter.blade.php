@@ -25,31 +25,36 @@
             text-decoration: none;
           }
         </style>
+        
         <div class="form-group">
-          
           <label for="exampleInputEmail1">Chọn chương</label>
-          <p><a href="{{url('xem-chapter/'. $previous_chapter)}}" class="btn btn-primary {{$chapter->id==$min_id->id ? 'isDisable' : ''}}">Tập Trước</a></p>
           <select name="kichhoat" class="custom-select select-chapter">
             @foreach($allchapter as $key =>$chap)
             <option value="{{url('xem-chapter/'.$chap->slug_chapter)}}">{{$chap->tieude}}</option>
             @endforeach
           </select>
-          <p class="mt-3"><a href="{{url('xem-chapter/'. $next_chapter)}}" class="btn btn-primary {{$chapter->id==$max_id->id ? 'isDisable' : ''}}">Tập Sau</a></p>
+          <center>
+            <a href="{{url('xem-chapter/'. $previous_chapter)}}" class="btn btn-primary {{$chapter->id==$min_id->id ? 'isDisable' : ''}} mt-2"><i class="fa fa-arrow-left"></i> Chap trước</a>
+            <a href="{{url('xem-chapter/'. $next_chapter)}}" class="btn btn-primary {{$chapter->id==$max_id->id ? 'isDisable' : ''}} ml-2 mt-2">Chap sau <i class="fa fa-arrow-right"></i></a>
+          </center>
         </div>
+
       </div>
       <div class="noidungchuong">
         <p>{!! $chapter->noidung !!}</p>
       </div>
       <div class="col-md-5">
         <div class="form-group">
-          
           <label for="exampleInputEmail1">Chọn chương</label>
           <select name="kichhoat" class="custom-select select-chapter">
             @foreach($allchapter as $key =>$chap)
             <option value="{{url('xem-chapter/'.$chap->slug_chapter)}}">{{$chap->tieude}}</option>
             @endforeach
           </select>
-
+          <center>
+            <a href="{{url('xem-chapter/'. $previous_chapter)}}" class="btn btn-primary {{$chapter->id==$min_id->id ? 'isDisable' : ''}} mt-2"><i class="fa fa-arrow-left"></i> Chap trước</a>
+            <a href="{{url('xem-chapter/'. $next_chapter)}}" class="btn btn-primary {{$chapter->id==$max_id->id ? 'isDisable' : ''}} ml-2 mt-2">Chap sau <i class="fa fa-arrow-right"></i></a>
+          </center>
         </div>
       </div>
       <!----------------Facebook--------------------->
