@@ -5,7 +5,6 @@
 @section('content')
 <!-- Nav tabs -->
 <ul class="nav nav-tabs">
-
   @foreach($danhmuc as $key => $value)
   <form>
     @csrf

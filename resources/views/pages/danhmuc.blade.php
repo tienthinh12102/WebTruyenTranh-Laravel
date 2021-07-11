@@ -13,7 +13,7 @@
 <!----------------Sách mới--------------------->
 <div class="album py-5 bg-light">
   <div class="container">
-    <h3>Danh mục : {{$tendanhmuc}}</h3>
+    <h3 class="doimau">Danh mục : {{$tendanhmuc}}</h3>
     <div class="row">
       @php
         $count = count($truyen);

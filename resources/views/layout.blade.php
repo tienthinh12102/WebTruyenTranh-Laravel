@@ -7,7 +7,7 @@
         <title>Truyện Tranh 247</title>
 
         <!-- Fonts -->
-        <link rel="shortcut icon" type="image/png" href="public/uploads/truyen/favicon.png"/>
+        <link rel="shortcut icon" type="image/png" href="{{url('public/uploads/truyen/favicon.png')}}"/>
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
         <!-- Styles -->
@@ -66,9 +66,11 @@
                   </div>
                 </nav>
             </div>
-            {{-- Go to www.addthis.com/dashboard to customize your tools --}}
+
+            {{-- Nút share Face/Zalo/Youtube --}}
             <div class="addthis_inline_share_toolbox mt-2"></div>
-            <div class="zalo-share-button" data-href="" data-oaid="579745863508352884" data-layout="1" data-color="blue" data-customize=false></div>
+            
+            
 
             <nav class="navbar navbar-expand-lg">
               <div class="row">
@@ -147,10 +149,11 @@
               $('nav.navbar.navbar-expand-lg.navbar-light.bg-light').toggleClass('bg_dark');
               $('.dropdown-menu').toggleClass('bg_dark');
               $('i.fa.fa').toggleClass('noidung_color');
-              $('.nav-link').css('color','#fff');
-              $('.navbar-brand').css('color','#fff');
+              $('.nav-link').toggleClass('noidung_color');
+              $('.navbar-brand').toggleClass('noidung_color');
               $('.card.mb-3.box-shadow').css('background','#242424');
               $('h3.card-header').toggleClass('tieude');
+              $('h3.doimau').toggleClass('noidung_color');
               
 
               $("select option[value='toi']").attr("selected","selected");
@@ -168,14 +171,17 @@
               $('nav.navbar.navbar-expand-lg.navbar-light.bg-light').toggleClass('bg_dark');
               $('.dropdown-menu').toggleClass('bg_dark');
               $('i.fa.fa').toggleClass('noidung_color');
-              $('.nav-link').css('color','#fff');
-              $('.navbar-brand').css('color','#fff');
+              $('.nav-link').toggleClass('noidung_color');
+              $('.navbar-brand').toggleClass('noidung_color');
               $('.card.mb-3.box-shadow').css('background','#242424');
               $('h3.card-header').toggleClass('tieude');
+              $('h3.doimau').toggleClass('noidung_color');
+
               if($(this).val() == 'toi'){
                 var item = {
                   'class_1' : 'switch_color',
                   'class_2' : 'switch_color_light',
+                  'class_3' : 'noidung_color',
                 }
                 localStorage.setItem('switch_color', JSON.stringify(item));
               }else if($(this).val() == 'sang'){

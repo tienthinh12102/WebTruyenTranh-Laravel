@@ -13,7 +13,7 @@
 
 <div class="album py-5 bg-light">
   <div class="container">
-    <h4>Thể loại : {{$tentheloai}}</h4>
+    <h3 class="doimau">Thể loại : {{$tentheloai}}</h3>
     <div class="row">
       @php
         $count = count($truyen);

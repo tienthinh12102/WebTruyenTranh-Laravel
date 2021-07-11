@@ -12,7 +12,7 @@
 <!----------------Sách mới--------------------->
 <div class="album py-5 bg-light">
   <div class="container">
-    <h3>Tìm kiếm : {{$tag}}</h3>
+    <h3 class="doimau">Tìm kiếm : {{$tag}}</h3>
     <div class="row">
       @php
         $count = count($truyen);

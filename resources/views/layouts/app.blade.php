@@ -86,7 +86,7 @@
   CKEDITOR.replace('noidung_chapter');
 </script>  
 <script type="text/javascript">
-   
+
     function ChangeToSlug()
     {
         var slug;
@@ -118,22 +118,23 @@
                     //In slug ra textbox có id “slug”
                     document.getElementById('convert_slug').value = slug;
                 }
-            </script>
-            <script type="text/javascript">
-                $('.truyennoibat').change(function(){
-                    const truyennoibat = $(this).val();
-                    const truyen_id = $(this).data('truyen_id');
-                    var _token = $('input[name="_token"]').val();
-                    $.ajax({
-                        url:"{{url('/truyennoibat')}}",
-                        method:"POST",
-                        data:{truyennoibat:truyennoibat, truyen_id:truyen_id, _token:_token},
-                        success:function(data){
-                            alert('Thành công');
-                        }
-                    });
-                })
-                
-            </script>
-        </body>
-        </html>
+</script>
+{{-- Thay đổi truyện nổi bật trong index/truyen --}}
+<script type="text/javascript">
+    $('.truyennoibat').change(function(){
+        const truyennoibat = $(this).val();
+        const truyen_id = $(this).data('truyen_id');
+        var _token = $('input[name="_token"]').val();
+        $.ajax({
+            url:"{{url('/truyennoibat')}}",
+            method:"POST",
+            data:{truyennoibat:truyennoibat, truyen_id:truyen_id, _token:_token},
+            success:function(data){
+                alert('Thành công');
+            }
+        });
+    })
+
+</script>
+</body>
+</html>

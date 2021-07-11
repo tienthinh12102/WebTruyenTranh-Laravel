@@ -17,7 +17,7 @@
 
         <div class="col-md-3">
 
-          <img class="card-img-top" src="{{asset('public/uploads/truyen/'.$truyen->hinhanh)}}">
+          <img class="card-img-top hinhanh" src="{{asset('public/uploads/truyen/'.$truyen->hinhanh)}}">
         </div>
         <div class="col-md-9">
           <style type="text/css">
@@ -34,7 +34,13 @@
             <input type="hidden" value="{{$truyen->id}}" class="wishlist_id">
 
             <li>
-              <div class="fb-share-button" data-href="{{\URL::current()}}" data-layout="button_count" data-size="small"><a target="_blank" href="{{\URL::current()}}&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Chia sẻ</a></div>
+              <div class="row ml-1">
+                <div class="fb-share-button mr-2" data-href="{{\URL::current()}}" data-layout="button_count" data-size="small"><a target="_blank" href="{{\URL::current()}}&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Chia sẻ</a></div>
+                <script src="https://apis.google.com/js/platform.js"></script>
+                <div class="g-ytsubscribe" data-channelid="UCKq7qObft97Hh3Vp3hODawQ" data-layout="default" data-theme="dark" data-count="default"></div>
+                <div class="zalo-share-button ml-2 mt-1" data-href="" data-oaid="579745863508352884" data-layout="2" data-color="blue" data-customize=false></div>
+              </div>
+              
             </li>
             <li><b>{{$truyen->tentruyen}}</b></li>
             <li>Tác giả : {{$truyen->tacgia}}</li>

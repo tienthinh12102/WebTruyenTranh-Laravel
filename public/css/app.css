@@ -2987,7 +2987,7 @@ input[type=button].btn-block {
   color: #212529;
   text-align: left;
   list-style: none;
-  background-color: #fff;
+  background-color: #fff !important;
   background-clip: padding-box;
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 0.25rem;
@@ -4375,6 +4375,7 @@ input[type=button].btn-block {
   flex: 1 1 auto;
   min-height: 1px;
   padding: 1.25rem;
+  background: #fff !important;
 }
 
 .card-title {
@@ -10077,7 +10078,7 @@ a.btn.btn-warning.btn-sm {
 
 /*Chỉnh màu nền background*/
 .switch_color{
-  background: #181818;
+  background: #181818 !important;
   color: #fff;
 }
 .switch_color_light{
@@ -10085,7 +10086,7 @@ a.btn.btn-warning.btn-sm {
   color: #000;
 }
 .noidung_color{
-  color: #fff;
+  color: #fff !important;
 }
 .bg_dark{
   background-color: #202020 !important;
@@ -10203,5 +10204,8 @@ a.nav-link.tabs_danhmuc.active {
 }
 a.btn.btn-primary.ml-2.mt-2 {
     width: 115px;
+}
+.card-img-top.hinhanh{
+  width: 120%;
 }
 
