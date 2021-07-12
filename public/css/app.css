@@ -10036,11 +10036,29 @@ a.btn.btn-warning.btn-sm {
 
 /*Ipad ngang(1024 x 768)*/
 @media screen and (max-width: 1024px){
-    
+    img {
+      width: 100% !important;
+      height: 100% !important;
+    }
+    img.card-img-top.hinhanh {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60% !important;
+    }
 }
 /*Ipad dọc(768 x 1024)*/
 @media screen and (max-width: 768px){
-    
+    img {
+      width: 100% !important;
+      height: 100% !important;
+    }
+    img.card-img-top.hinhanh {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60% !important;
+    }
 
 }
 /*Tablet nhỏ(480 x 640)*/
@@ -10060,6 +10078,20 @@ a.btn.btn-warning.btn-sm {
     margin-left: auto;
     margin-right: auto;
     }
+    img {
+      width: 100% !important;
+      height: 100% !important;
+    }
+    img.card-img-top.hinhanh {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60% !important;
+    }
+    ul.infotruyen {
+    margin-left: 34px;
+    margin-right: auto;
+    }
     
 
 }
@@ -10070,10 +10102,39 @@ a.btn.btn-warning.btn-sm {
     width: 80px;
     margin-left: 70px;
     }
+    img {
+      width: 100% !important;
+      height: 100% !important;
+    }
+    img.card-img-top.hinhanh {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60% !important;
+    }
+    ul.infotruyen {
+    margin-left: 7px;
+    margin-right: auto;
+    }
+    
+
 }
 /*Smart phone nhỏ*/
 @media screen and (max-width: 240px){
-    
+    img {
+      width: 100% !important;
+      height: 100% !important;
+    }
+    img.card-img-top.hinhanh {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60% !important;
+    }
+    ul.infotruyen {
+    margin-left: 7px;
+    margin-right: auto;
+    }
 }
 
 /*Chỉnh màu nền background*/
