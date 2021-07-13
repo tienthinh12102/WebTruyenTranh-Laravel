@@ -10086,12 +10086,22 @@ a.btn.btn-warning.btn-sm {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 60% !important;
+    width: 80% !important;
     }
     ul.infotruyen {
     margin-left: 34px;
     margin-right: auto;
     }
+    .album.py-5.bg-light{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    }
+    .col-md-3 {
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
     
 
 }
