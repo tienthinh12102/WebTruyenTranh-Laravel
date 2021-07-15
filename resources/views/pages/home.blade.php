@@ -32,7 +32,7 @@
             <div class="d-flex justify-content-between align-items-center">
               <div class="btn-group">
                 <a href="{{url('xem-truyen/'. $value->slug_truyen)}}" class="btn btn-sm btn-outline-secondary">Đọc ngay</a>
-                <a class="btn btn-sm btn-outline-secondary"><i class="fas fa-eye"></i>6000</a>
+                <a class="btn btn-sm btn-outline-secondary"><i class="fas fa-eye"></i> 6000</a>
               </div>
               <small class="text-muted ml-2">{{$value->created_at->diffForHumans()}}</small>
             </div>           
@@ -71,7 +71,7 @@
             <div class="d-flex justify-content-between align-items-center">
               <div class="btn-group">
                 <a href="{{url('xem-truyen/'. $value->slug_truyen)}}" class="btn btn-sm btn-outline-secondary">Đọc ngay</a>
-                <a class="btn btn-sm btn-outline-secondary"><i class="fas fa-eye"></i>6000</a>
+                <a class="btn btn-sm btn-outline-secondary"><i class="fas fa-eye"></i> 6000</a>
               </div>
               <small class="text-muted">{{$value->created_at->diffForHumans()}}</small>
             </div>           

@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Truyện Tranh 247 - Trang Admin</title>
+    <title>Truyện Tranh SWG - Trang Admin</title>
     <link rel="shortcut icon" type="image/png" href="public/uploads/truyen/favicon.png"/>
 
     <!-- Scripts -->
