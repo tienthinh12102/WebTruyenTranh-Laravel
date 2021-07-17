@@ -99,7 +99,7 @@
             <footer class="text-muted">
               <div class="container">
                 <p class="float-right">
-                  <a href="#">Quay lại trang đầu</a>
+                  <a href="#">Quay lại trang đầu </a>
                 </p>
                 <p>Web truyện tranh 247 </p>
                 <p>Đọc truyện hay, mới nhất tại <a href="../../">Truyen tranh 247</a> hoặc tham gia group <a href="../../getting-started/">Truyen Tong Hop</a>.</p>
