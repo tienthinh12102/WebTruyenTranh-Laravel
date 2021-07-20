@@ -9,6 +9,7 @@ use App\Models\Chapter;
 use App\Models\Theloai;
 class IndexController extends Controller
 {
+    //tag danh muc ở trang layout
     public function tabs_danhmuc(Request $request){
         $data = $request->all();
         $output = '';
@@ -98,7 +99,7 @@ class IndexController extends Controller
     public function timkiem(){
         
         $theloai = Theloai::orderBy('id','DESC')->get();
-        $danhmuc = DanhmucTruyen::orderBy('id','DESC')->get();
+        $danhmuc = DanhmucTruyen::orderBy('id','DESC')->get(); 
         $slide_truyen = Truyen::orderBy('id','DESC')->where('kichhoat',0)->take(8)->get();
 
         $tukhoa = $_GET['tukhoa'];
