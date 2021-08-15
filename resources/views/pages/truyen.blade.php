@@ -7,7 +7,9 @@
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="{{url('/')}}">Trang chủ</a></li>
-      <li class="breadcrumb-item"><a href="{{url('danh-muc/'.$truyen->danhmuctruyen->slug_danhmuc)}}">{{$truyen->danhmuctruyen->tendanhmuc}}</a></li>
+      @foreach($truyen->thuocnhieudanhmuctruyen as $key => $breadcrumb_danh)
+      <li class="breadcrumb-item"><a href="{{url('danh-muc/'.$breadcrumb_danh->slug_danhmuc)}}">{{$breadcrumb_danh->tendanhmuc}}</a></li>
+      @endforeach
       <li class="breadcrumb-item active" aria-current="page">{{$truyen->tentruyen}}</li>
     </ol>
   </nav>
@@ -48,8 +50,19 @@
             @if($truyen->updated_at != '')
             <li>Ngày cập nhật : {{$truyen->updated_at->diffForHumans()}}</li>
             @endif()
-            <li>Danh mục truyện : <a href="{{url('danh-muc/'.$truyen->danhmuctruyen->slug_danhmuc)}}">{{$truyen->danhmuctruyen->tendanhmuc}}</a></li>
-            <li>Thể loại truyện : <a href="{{url('the-loai/'.$truyen->theloai->slug_theloai)}}">{{$truyen->theloai->tentheloai}}</a></li>
+            <li> Danh mục truyện :
+            @foreach($truyen->thuocnhieudanhmuctruyen as $thuocdanh)
+             <a href="{{url('danh-muc/'.$thuocdanh->slug_danhmuc)}}"><span class="badge badge-dark">{{$thuocdanh->tendanhmuc}}</span></a>
+            @endforeach
+            </li>
+            <li> Thể loại truyện : 
+            @foreach($truyen->thuocnhieutheloaitruyen as $thuocloai)
+            <a href="{{url('the-loai/'.$thuocloai->slug_theloai)}}"><span class="badge badge-info">{{$thuocloai->tentheloai}}</span></a>
+            @endforeach
+            </li>
+            
+            {{-- <li>Danh mục truyện : <a href="{{url('danh-muc/'.$truyen->danhmuctruyen->slug_danhmuc)}}">{{$truyen->danhmuctruyen->tendanhmuc}}</a></li>
+            <li>Thể loại truyện : <a href="{{url('the-loai/'.$truyen->theloai->slug_theloai)}}">{{$truyen->theloai->tentheloai}}</a></li> --}}
             <li>Số chapter : 12</li>
             <li>Số lượt xem : 16248</li>
             <li><a href="{{url('xem-truyen/'.$truyen->slug_truyen)}}#mucluc">Xem mục lục</a></li>
@@ -106,7 +119,8 @@
         <div class="fb-comments" data-href="{{\URL::current()}}" data-width="100%" data-numposts="10" ></div>
       </div>
       <!----------------Sách cùng danh mục--------------------->
-      <h4>Truyện cùng danh mục</h4>
+      {{-- <h4>Truyện cùng danh mục</h4>
+      
       <div class="row">
         @foreach($cungdanhmuc as $key => $cung)
         <div class="col-md-3">
@@ -120,7 +134,7 @@
           </div>        
         </div>
         @endforeach
-      </div>
+      </div> --}}
 
     </div>
     <div class="col-md-3">

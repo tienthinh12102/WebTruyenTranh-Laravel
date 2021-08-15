@@ -69,9 +69,7 @@
 
             {{-- Nút share Face/Zalo/Youtube --}}
             <div class="addthis_inline_share_toolbox mt-2"></div>
-            
-            
-
+                            
             <nav class="navbar navbar-expand-lg">
               <div class="row">
               <div class="col-mt-12">

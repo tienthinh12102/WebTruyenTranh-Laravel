@@ -39,8 +39,18 @@
                           <td><img src="{{asset('public/uploads/truyen/'.$truyen->hinhanh)}}" height="100" width="80"></td>
                           <td>{{$truyen->slug_truyen}}</td>
                           {{-- <td>{{$truyen->tomtat}}</td> --}}
-                          <td>{{$truyen->danhmuctruyen->tendanhmuc}}</td>
-                          <td>{{$truyen->theloai->tentheloai}}</td>
+                          <td>
+                            @foreach($truyen->thuocnhieudanhmuctruyen as $thuocdanh)                            
+                              <span class="badge badge-dark">{{$thuocdanh->tendanhmuc}}</span>
+                            @endforeach
+                          </td>
+                          <td>
+                            @foreach($truyen->thuocnhieutheloaitruyen as $thuocloai)                            
+                              <span class="badge badge-dark">{{$thuocloai->tentheloai}}</span>
+                            @endforeach
+                          </td>
+                          {{-- <td>{{$truyen->danhmuctruyen->tendanhmuc}}</td>
+                          <td>{{$truyen->theloai->tentheloai}}</td> --}}
                           <td width="6%">
                               @if($truyen->kichhoat==0)
                                 <span class="text text-success">Kích hoạt</span>

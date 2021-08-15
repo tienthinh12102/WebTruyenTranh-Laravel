@@ -17,7 +17,7 @@ class TruyenController extends Controller
      */
     public function index()
     {
-        $list_truyen = Truyen::with('danhmuctruyen','theloai')->orderBy('id','DESC')->get();
+        $list_truyen = Truyen::with('thuocnhieudanhmuctruyen','thuocnhieutheloaitruyen')->orderBy('id','DESC')->get();
         return view('admincp.truyen.index')->with(compact('list_truyen'));
     }
 
@@ -74,12 +74,18 @@ class TruyenController extends Controller
         $truyen->tomtat = $data['tomtat'];
         $truyen->tacgia = $data['tacgia'];
         $truyen->kichhoat = $data['kichhoat'];
-        $truyen->danhmuc_id = $data['danhmuc'];
-        $truyen->theloai_id = $data['theloai'];
         $truyen->tukhoa = $data['tukhoa'];
         $truyen->truyen_noibat = $data['truyennoibat'];
 
         $truyen->created_at = Carbon::now('Asia/Ho_Chi_Minh');
+
+        foreach($data['danhmuc'] as $key => $danh){
+            $truyen->danhmuc_id = $danh[0];
+        }
+        
+        foreach($data['theloai'] as $key => $the){
+            $truyen->theloai_id = $the[0];
+        }
 
         $get_image = $request->hinhanh;
         $path = 'public/uploads/truyen/';
@@ -91,6 +97,9 @@ class TruyenController extends Controller
         $truyen->hinhanh = $new_image;
 
         $truyen->save();
+
+        $truyen->thuocnhieudanhmuctruyen()->attach($data['danhmuc']);
+        $truyen->thuocnhieutheloaitruyen()->attach($data['theloai']);
         return redirect()->back()->with('status','Thêm truyện thành công');
     }
 
@@ -114,9 +123,13 @@ class TruyenController extends Controller
     public function edit($id)
     {
         $truyen = Truyen::find($id);
+
+        $thuocdanhmuc = $truyen->thuocnhieudanhmuctruyen;
+        $thuoctheloai = $truyen->thuocnhieutheloaitruyen;
+
         $theloai = Theloai::orderBy('id','DESC')->get();
         $danhmuc = DanhmucTruyen::orderBy('id','DESC')->get();
-        return view('admincp.truyen.edit')->with(compact('truyen','danhmuc','theloai'));
+        return view('admincp.truyen.edit')->with(compact('truyen','danhmuc','theloai','thuocdanhmuc','thuoctheloai'));
     }
 
     /**
@@ -145,7 +158,6 @@ class TruyenController extends Controller
                 'slug_truyen.required' => 'Slug truyện trống',
                 'tentruyen.required' => 'Tên truyện trống',
                 'tomtat.required' => 'Tóm tắt danh mục trống',
-                'theloai.required' => 'Thể loại truyện trống',
                 'tukhoa.required' => 'Từ khóa truyện trống',
                 'truyennoibat.required' => 'Từ khóa truyện trống',
             ]
@@ -156,10 +168,15 @@ class TruyenController extends Controller
         $truyen->tomtat = $data['tomtat'];
         $truyen->tacgia = $data['tacgia'];
         $truyen->kichhoat = $data['kichhoat'];
-        $truyen->danhmuc_id = $data['danhmuc'];
-        $truyen->theloai_id = $data['theloai'];
         $truyen->tukhoa = $data['tukhoa'];
         $truyen->truyen_noibat = $data['truyennoibat'];
+
+        foreach($data['danhmuc'] as $key => $danh){
+            $truyen->danhmuc_id = $danh[0];
+        }
+        foreach($data['theloai'] as $key => $the){
+            $truyen->theloai_id = $the[0];
+        }
 
         $truyen->updated_at = Carbon::now('Asia/Ho_Chi_Minh');
 
@@ -178,6 +195,9 @@ class TruyenController extends Controller
             $truyen->hinhanh = $new_image;
         }
         $truyen->save();
+        
+        $truyen->thuocnhieudanhmuctruyen()->sync($data['danhmuc']);
+        $truyen->thuocnhieutheloaitruyen()->sync($data['theloai']);
         return redirect()->back()->with('status','Cập nhật truyện thành công');
     }
 
@@ -194,6 +214,8 @@ class TruyenController extends Controller
         if(file_exists($path)){
             unlink($path);
         }
+        $truyen->thuocnhieudanhmuctruyen()->detach($truyen->danhmuc_id);
+        $truyen->thuocnhieutheloaitruyen()->detach($truyen->theloai_id);
         Truyen::find($id)->delete();
         return redirect()->back()->with('status','Xóa truyện thành công');
     }

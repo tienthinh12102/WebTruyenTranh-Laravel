@@ -21,13 +21,19 @@
   <div class="container">
 
     <div class="row">
-      @foreach($truyen as $key => $value)
+      @foreach($list_truyen as $key => $value)
       <div class="col-md-3">
         <div class="card mb-3 box-shadow">
 
           <img class="card-img-top" src="{{asset('public/uploads/truyen/'.$value->hinhanh)}}">
           <div class="card-body">
             <h5>{{$value->tentruyen}}</h5>
+            @foreach($value->thuocnhieudanhmuctruyen as $thuocdanh)                            
+            <a href="{{url('danh-muc/'.$thuocdanh->slug_danhmuc)}}"><span class="badge badge-success">{{$thuocdanh->tendanhmuc}}</span></a>
+            @endforeach
+            @foreach($value->thuocnhieutheloaitruyen as $thuocloai)
+            <a href="{{url('the-loai/'.$thuocloai->slug_theloai)}}"><span class="badge badge-danger">{{$thuocloai->tentheloai}}</span></a>                            
+            @endforeach
             {{-- <p class="card-text">{{$value->tomtat}}</p> --}}
             <div class="d-flex justify-content-between align-items-center">
               <div class="btn-group">
@@ -67,6 +73,12 @@
           <img class="card-img-top" src="{{asset('public/uploads/truyen/'.$value->hinhanh)}}">
           <div class="card-body">
             <h5>{{$value->tentruyen}}</h5>
+            @foreach($value->thuocnhieudanhmuctruyen as $thuocdanh)                            
+            <a href="{{url('danh-muc/'.$thuocdanh->slug_danhmuc)}}"><span class="badge badge-primary">{{$thuocdanh->tendanhmuc}}</span></a>
+            @endforeach
+            @foreach($value->thuocnhieutheloaitruyen as $thuocloai)
+            <a href="{{url('the-loai/'.$thuocloai->slug_theloai)}}"><span class="badge badge-warning">{{$thuocloai->tentheloai}}</span></a>                            
+            @endforeach
             {{-- <p class="card-text">{{$value->tomtat}}</p> --}}
             <div class="d-flex justify-content-between align-items-center">
               <div class="btn-group">

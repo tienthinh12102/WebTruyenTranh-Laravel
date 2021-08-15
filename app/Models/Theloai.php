@@ -19,4 +19,7 @@ class Theloai extends Model
     public function truyen(){
         return $this->hasMany('App\Models\Truyen');
     }
+    public function nhieutheloaitruyen(){
+        return $this->belongsToMany(Truyen::class,'thuocloai','theloai_id','truyen_id');
+    }
 }

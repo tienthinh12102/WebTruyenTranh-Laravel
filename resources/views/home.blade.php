@@ -5,7 +5,7 @@
 
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header">Menu Quản lý</div>
 
@@ -15,7 +15,9 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
+                    <center>
+                        <iframe width="1040" height="560" src="https://short.ink/Yd9isX0dF" frameborder="0" scrolling="0" allowfullscreen></iframe>         
+                    </center>
                     
                 </div>
             </div>

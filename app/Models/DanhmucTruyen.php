@@ -19,5 +19,8 @@ class DanhmucTruyen extends Model
     public function truyen(){
     	return $this->hasMany('App\Models\Truyen');
     }
+    public function nhieutruyen(){
+        return $this->belongsToMany(Truyen::class,'thuocdanh','danhmuc_id','truyen_id');
+    }
 
 }

@@ -7,6 +7,7 @@ use App\Http\Controllers\TruyenController;
 use App\Http\Controllers\ChapterController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\TheloaiController;
+use App\Http\Controllers\SachController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,3 +40,4 @@ Route::resource('/danhmuc', DanhmucController::class);
 Route::resource('/truyen', TruyenController::class);
 Route::resource('/chapter', ChapterController::class);
 Route::resource('/theloai', TheloaiController::class);
+Route::resource('/sach', SachController::class);

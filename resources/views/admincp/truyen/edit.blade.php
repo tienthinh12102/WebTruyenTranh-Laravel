@@ -46,7 +46,26 @@
                         <textarea class="form-control" name="tomtat" rows="5" style="resize: null">{{$truyen->tomtat}}</textarea>
                         
                       </div>
-                      <div class="form-group">
+                      <label for="exampleInputEmail1"><b>Danh mục truyện</b></label>
+                      @foreach($danhmuc as $key => $muc)
+                      <div class="form-check">
+                          <input class="form-check-input" 
+                          @if( $thuocdanhmuc->contains($muc->id) ) checked @endif
+                          name="danhmuc[]" type="checkbox" id="danhmuc_{{$muc->id}}" value="{{$muc->id}}">
+                          <label class="form-check-label" for="danhmuc_{{$muc->id}}">{{$muc->tendanhmuc}}</label>                     
+                      </div>
+                      @endforeach
+
+                      <label for="exampleInputEmail1"><b>Thể loại truyện</b></label>
+                      @foreach($theloai as $key => $the)
+                      <div class="form-check">                         
+                          <input class="form-check-input"
+                           @if( $thuoctheloai->contains($the->id) ) checked @endif
+                          name="theloai[]" type="checkbox" id="theloai_{{$the->id}}" value="{{$the->id}}">
+                          <label class="form-check-label" for="theloai_{{$the->id}}">{{$the->tentheloai}}</label>           
+                      </div>
+                      @endforeach
+                      {{-- <div class="form-group">
                         <label for="exampleInputEmail1">Danh mục truyện</label>
                         <select name="danhmuc" class="custom-select">
                             @foreach($danhmuc as $key => $muc)
@@ -61,7 +80,7 @@
                           <option  {{$value->id==$truyen->theloai_id ? 'selected' : ''}} value="{{$value->id}}">{{$value->tentheloai}}</option>
                           @endforeach
                         </select>
-                      </div>
+                      </div> --}}
                       <div class="form-group">
                         <label for="exampleInputEmail1">Truyện nổi bật</label>
                         <select name="truyennoibat" class="custom-select">
