@@ -17,9 +17,15 @@ class UserController extends Controller
      */
     public function index()
     {
-        $role = Role::create(['name' => 'admin1']);//loai ng dung`
-        //tinh nang su dung
-        $permission = Permission::create(['name' => 'them danh muc']);
+        // $role = Role::create(['name' => 'admin1']);//loai ng dung`
+        // //tinh nang su dung
+        // $permission = Permission::create(['name' => 'them truyen']);
+        
+        // auth()->user()->givePermissionTo('them danh muc');
+        // auth()->user()->assignRole('admin1');
+        // $role = Role::find(1);
+        // $role->givePermissionTo('them danh muc');
+
         return view('admincp.user.index');
     }
 

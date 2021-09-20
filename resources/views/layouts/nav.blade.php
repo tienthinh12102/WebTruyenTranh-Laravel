@@ -6,7 +6,8 @@
                           <li class="nav-item active">
                             <a class="nav-link" href="{{url('/home')}}">Admin<span class="sr-only">(current)</span></a>
                           </li>
-                          
+
+                          @role('admin1')
                           <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                               Quản lý danh mục
@@ -16,6 +17,8 @@
                               <a class="dropdown-item" href="{{route('danhmuc.index')}}">Liệt kê danh mục</a>
                             </div>
                           </li>
+                          @endrole
+
                           <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                               Thể loại
